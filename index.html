@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cẩm Nang Du Lịch Huế 23/07 - 26/07 - Đảng Lông Lá</title>
+    <meta name="description" content="Lịch trình du lịch Huế 4 ngày 3 đêm (23-26/07) của Đảng Lông Lá. Đi giường nằm, về máy bay, so sánh homestay, chi phí ăn nhậu karaoke chi tiết.">
+    
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Remix Icons for modern design -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        /* CSS addition for budget badge & calculator */
+        .timeline-cost {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--bright-amber);
+            background: rgba(231, 111, 81, 0.1);
+            padding: 4px 10px;
+            border-radius: 50px;
+            margin-left: 8px;
+            border: 1px solid rgba(231, 111, 81, 0.2);
+        }
+        
+        .budget-section {
+            padding: 80px 0;
+            background: rgba(28, 10, 33, 0.2);
+        }
+
+        .budget-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .budget-calculator-card {
+            background: var(--glass-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: var(--glow-shadow);
+        }
+
+        .calc-option-group {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 15px;
+        }
+
+        .calc-option-group:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .calc-label {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--pure-white);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .calc-select {
+            width: 100%;
+            background: #25102d;
+            border: 1px solid var(--glass-border);
+            padding: 12px 18px;
+            border-radius: 50px;
+            color: var(--pure-white);
+            font-family: var(--font-body);
+            font-size: 14px;
+            outline: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .calc-select:focus {
+            border-color: var(--sunset-gold);
+        }
+
+        .calc-checkbox-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .calc-checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .calc-checkbox-label input {
+            cursor: pointer;
+        }
+
+        .budget-summary-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(59, 22, 66, 0.6), rgba(28, 10, 33, 0.8));
+            border: 1px solid var(--gold-border);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: var(--glow-shadow);
+        }
+
+        .summary-total {
+            font-family: var(--font-heading);
+            font-size: 48px;
+            color: var(--sunset-gold);
+            font-weight: 700;
+            margin: 15px 0;
+            text-shadow: 0 4px 15px rgba(212, 163, 115, 0.3);
+        }
+
+        .summary-desc {
+            font-size: 14px;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="ri-ancient-gate-line"></i> ĐảngLôngLá<span>Hue</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#welcome">Giới thiệu</a></li>
+                <li><a href="#weather">Thời tiết</a></li>
+                <li><a href="#homestay">Homestay</a></li>
+                <li><a href="#budget">Chi phí</a></li>
+                <li><a href="#map">Bản đồ</a></li>
+                <li><a href="#itinerary">Lịch trình</a></li>
+                <li><a href="#food">Ẩm thực</a></li>
+                <li><a href="#participants">Thành viên</a></li>
+                <li><a href="#checklist">Hành lý</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="welcome">
+        <div class="hero-content">
+            <span class="hero-subtitle">Đảng Lông Lá di cư vô Huế 🌸</span>
+            <h1 class="hero-title">Hành Trình Oanh Tạc Cố Đô<br><span>23/07 - 26/07</span></h1>
+            <p class="hero-desc">Đi xe giường nằm tối 23/07, về máy bay ngày 26/07. Cập nhật chi phí vé máy bay và lịch trình nhậu nhẹt, hát hò karaoke kịch tính hàng đêm.</p>
+            <a href="#itinerary" class="btn-primary">
+                Xem Lịch Trình Chi Tiết <i class="ri-arrow-right-line"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Weather & Tips Section -->
+    <section class="info-section" id="weather">
+        <div class="container grid-2">
+            <div class="info-text">
+                <span class="section-tag">Cẩm nang mùa hè</span>
+                <h2 class="section-title">Thời Tiết Huế 23/07 - 26/07</h2>
+                <p class="section-desc">Huế cuối tháng 7 đang là mùa nắng gắt lý tưởng để chụp ảnh trời xanh ngắt. Với nhóm đông 10 người, cần lưu ý uống đủ nước và di chuyển bằng xe dịch vụ/thuê xe máy theo đoàn để chủ động tránh nắng giờ cao điểm.</p>
+                <div class="weather-stats">
+                    <div class="stat-card">
+                        <i class="ri-sun-line stat-icon"></i>
+                        <div class="stat-val">28 - 37°C</div>
+                        <div class="stat-label">Nhiệt độ trung bình</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="ri-temp-hot-line stat-icon"></i>
+                        <div class="stat-val">Khuyên dùng</div>
+                        <div class="stat-label">Mang ô, mũ rộng vành</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="glass-panel">
+                <h3 style="font-family: var(--font-heading); font-size: 24px; margin-bottom: 15px; color: var(--pure-white);">
+                    <i class="ri-lightbulb-line" style="color: var(--sunset-gold);"></i> Khung Giờ Hoạt Động Gợi Ý
+                </h3>
+                <p style="font-size: 14px; opacity: 0.8; margin-bottom: 15px;">Kéo thanh trượt để xem mẹo sắp xếp hoạt động theo thời gian trong ngày:</p>
+                
+                <div class="interactive-slider-box">
+                    <div class="slider-label">
+                        <span id="slider-time-text" style="font-weight: 700; color: var(--sunset-gold);">08:00 Sáng</span>
+                        <span>Thời tiết: <span id="slider-temp-text">Dịu mát</span></span>
+                    </div>
+                    <input type="range" min="6" max="21" value="8" class="slider-input" id="timeSlider">
+                    <div class="dynamic-tip-output" id="timeTip">
+                        Khung giờ lý tưởng để tham quan Đại Nội Huế hoặc Lăng Minh Mạng. Nắng nhẹ, gió mát từ sông Hương giúp đi bộ không mệt mỏi.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Homestay Recommendation Section -->
+    <section class="homestay-section" id="homestay">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <span class="section-tag">Nơi lưu trú tham khảo</span>
+                <h2 class="section-title">So Sánh Danh Sách Homestay Trong Sheet</h2>
+                <p style="max-width: 600px; margin: 0 auto; opacity: 0.8; font-size: 15px;">Chi tiết các homestay được lựa chọn so sánh trong bảng tính, tính toán chi phí trung bình trên mỗi thành viên cho 2 đêm.</p>
+            </div>
+            
+            <div class="homestay-grid">
+                <!-- Homestay 1 -->
+                <div class="homestay-card">
+                    <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80" alt="Thuong apartment 1" class="homestay-img">
+                    <div class="homestay-info">
+                        <h3 class="homestay-title">Thương Apartment 1</h3>
+                        <div class="homestay-meta">
+                            <span><i class="ri-money-dollar-circle-line"></i> ~310.000đ/người/2 đêm</span>
+                            <span><i class="ri-user-group-line"></i> 10 người</span>
+                        </div>
+                        <p class="homestay-desc">Căn hộ dịch vụ tiện lợi với chi phí rẻ nhất danh sách. Phòng ốc trang trí hiện đại, sạch sẽ và rất gần các quán bún bò Bà Gái ăn sáng.</p>
+                        <div class="homestay-tags" style="margin-bottom: 15px;">
+                            <span class="homestay-tag"><i class="ri-wallet-3-line"></i> Giá siêu rẻ</span>
+                            <span class="homestay-tag"><i class="ri-building-line"></i> Tiện nghi apartment</span>
+                        </div>
+                        <a href="https://zalo.me/" target="_blank" class="btn-primary" style="padding: 10px 20px; font-size: 12px; margin-top: auto; text-align: center; justify-content: center;">
+                            Đặt Phòng Qua Zalo <i class="ri-external-link-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Homestay 2 -->
+                <div class="homestay-card">
+                    <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=600&q=80" alt="Thuong Apartment" class="homestay-img">
+                    <div class="homestay-info">
+                        <h3 class="homestay-title">Thương Apartment</h3>
+                        <div class="homestay-meta">
+                            <span><i class="ri-money-dollar-circle-line"></i> ~350.000đ/người/2 đêm</span>
+                            <span><i class="ri-user-group-line"></i> 10 người</span>
+                        </div>
+                        <p class="homestay-desc">Không gian căn hộ rộng thoáng hơn, có phòng khách chung sinh hoạt tiện lợi cho nhóm 10 người cùng uống trà hay ăn bánh ép Huế nói chuyện buổi tối.</p>
+                        <div class="homestay-tags" style="margin-bottom: 15px;">
+                            <span class="homestay-tag"><i class="ri-home-line"></i> Phòng khách rộng</span>
+                            <span class="homestay-tag"><i class="ri-community-line"></i> Căn hộ dịch vụ</span>
+                        </div>
+                        <a href="https://zalo.me/" target="_blank" class="btn-primary" style="padding: 10px 20px; font-size: 12px; margin-top: auto; text-align: center; justify-content: center;">
+                            Đặt Phòng Qua Zalo <i class="ri-external-link-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Homestay 3 -->
+                <div class="homestay-card">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80" alt="Nera home" class="homestay-img">
+                    <div class="homestay-info">
+                        <h3 class="homestay-title">Nera Home, An apartment</h3>
+                        <div class="homestay-meta">
+                            <span><i class="ri-money-dollar-circle-line"></i> ~367.000đ/người/2 đêm</span>
+                            <span><i class="ri-user-group-line"></i> 10 người</span>
+                        </div>
+                        <p class="homestay-desc">Căn hộ thiết kế hiện đại, tọa lạc trong khu chung cư cao cấp. Vị trí an ninh tốt, gần trung tâm và đầy đủ đồ dùng làm bếp cơ bản.</p>
+                        <div class="homestay-tags" style="margin-bottom: 15px;">
+                            <span class="homestay-tag"><i class="ri-star-line"></i> Đánh giá cao</span>
+                            <span class="homestay-tag"><i class="ri-shield-user-line"></i> An ninh 24/7</span>
+                        </div>
+                        <a href="https://www.booking.com/hotel/vn/nera-garden-apartment-2-bedroom.vi.html" target="_blank" class="btn-primary" style="padding: 10px 20px; font-size: 12px; margin-top: auto; text-align: center; justify-content: center;">
+                            Đặt Phòng Trên Booking <i class="ri-external-link-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Homestay 4 -->
+                <div class="homestay-card" style="border: 1px solid var(--sunset-gold);">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Uchi Nera Home" class="homestay-img">
+                    <div class="homestay-info">
+                        <h3 class="homestay-title">Uchi Nera Home Huế</h3>
+                        <div class="homestay-meta">
+                            <span><i class="ri-money-dollar-circle-line"></i> ~370.000đ/người/2 đêm</span>
+                            <span><i class="ri-user-group-line"></i> 10 người</span>
+                        </div>
+                        <p class="homestay-desc"><em>(Chưa có đánh giá app do mới cho thuê)</em>. Cực kỳ xinh xắn, thiết kế sang trọng bắt mắt và đầy đủ góc sống ảo cho cả đoàn. Chủ yếu liên hệ book qua Zalo.</p>
+                        <div class="homestay-tags" style="margin-bottom: 15px;">
+                            <span class="homestay-tag" style="color: var(--sunset-gold);"><i class="ri-sparkles-line"></i> Rất đẹp & Mới</span>
+                            <span class="homestay-tag"><i class="ri-phone-line"></i> Đặt qua Zalo</span>
+                        </div>
+                        <a href="https://zalo.me/" target="_blank" class="btn-primary" style="padding: 10px 20px; font-size: 12px; margin-top: auto; text-align: center; justify-content: center;">
+                            Đặt Phòng Qua Zalo <i class="ri-external-link-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Homestay 5 -->
+                <div class="homestay-card">
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=600&q=80" alt="Hien apartment" class="homestay-img">
+                    <div class="homestay-info">
+                        <h3 class="homestay-title">Hiền Apartment</h3>
+                        <div class="homestay-meta">
+                            <span><i class="ri-money-dollar-circle-line"></i> ~340.000đ/người/2 đêm</span>
+                            <span><i class="ri-user-group-line"></i> 10 người</span>
+                        </div>
+                        <p class="homestay-desc">Căn hộ ấm cúng có vị trí trung tâm vô cùng đắc địa, thuận tiện di chuyển đến bến xe, phố đi bộ Nguyễn Đình Chiểu và các quán ăn hến đập đá.</p>
+                        <div class="homestay-tags" style="margin-bottom: 15px;">
+                            <span class="homestay-tag"><i class="ri-map-pin-2-line"></i> Vị trí trung tâm</span>
+                            <span class="homestay-tag"><i class="ri-check-line"></i> Sạch sẽ chu đáo</span>
+                        </div>
+                        <a href="https://www.booking.com/index.vi.html" target="_blank" class="btn-primary" style="padding: 10px 20px; font-size: 12px; margin-top: auto; text-align: center; justify-content: center;">
+                            Đặt Phòng Trên Booking <i class="ri-external-link-line"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Budget Calculator Section (Updated with flight return) -->
+    <section class="budget-section" id="budget">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <span class="section-tag">Dự tính tài chính</span>
+                <h2 class="section-title">Ước Tính Chi Phí Mỗi Thành Viên</h2>
+                <p style="max-width: 600px; margin: 0 auto; opacity: 0.8; font-size: 15px;">Tùy chỉnh các lựa chọn dưới đây để xem tổng chi phí trung bình ước tính (Đi giường nằm - Về máy bay).</p>
+            </div>
+
+            <div class="budget-grid">
+                <div class="budget-calculator-card">
+                    <h3 style="font-family: var(--font-heading); font-size: 22px; color: var(--pure-white); margin-bottom: 20px;">
+                        Tùy Chọn Hoạt Động & Vé
+                    </h3>
+                    
+                    <div class="calc-option-group">
+                        <label class="calc-label">Di chuyển Lượt đi (Hà Nội -> Huế)</label>
+                        <select id="calcTransportGo" class="calc-select" onchange="calculateBudget()">
+                            <option value="450000">Xe giường nằm Cabin đôi (450.000đ)</option>
+                            <option value="600000">Xe giường nằm Cabin đơn (600.000đ)</option>
+                        </select>
+                    </div>
+
+                    <div class="calc-option-group">
+                        <label class="calc-label">Di chuyển Lượt về (Huế -> Hà Nội)</label>
+                        <select id="calcTransportBack" class="calc-select" onchange="calculateBudget()">
+                            <option value="1500000">Máy bay phổ thông trung bình (1.500.000đ)</option>
+                            <option value="1200000">Máy bay vé rẻ (1.200.000đ)</option>
+                            <option value="1800000">Máy bay giờ vàng / Vietjet (1.800.000đ)</option>
+                        </select>
+                    </div>
+
+                    <div class="calc-option-group">
+                        <label class="calc-label">Homestay lựa chọn (2 đêm)</label>
+                        <select id="calcHomestay" class="calc-select" onchange="calculateBudget()">
+                            <option value="310000">Thương Apartment 1 (310.000đ)</option>
+                            <option value="340000">Hiền Apartment (340.000đ)</option>
+                            <option value="350000">Thương Apartment (350.000đ)</option>
+                            <option value="367000">Nera Home Apartment (367.000đ)</option>
+                            <option value="370000">Uchi Nera Home Huế (370.000đ)</option>
+                        </select>
+                    </div>
+
+                    <div class="calc-option-group">
+                        <label class="calc-label">Hoạt động tham quan di tích</label>
+                        <div class="calc-checkbox-list">
+                            <label class="calc-checkbox-label">
+                                <input type="checkbox" id="calcDainoi" checked value="200000" onchange="calculateBudget()">
+                                Vé vào Đại Nội Huế (200.000đ)
+                            </label>
+                            <label class="calc-checkbox-label">
+                                <input type="checkbox" id="calcLangs" checked value="300000" onchange="calculateBudget()">
+                                Combo vé 2 Lăng Khải Định + Tự Đức (300.000đ)
+                            </label>
+                            <label class="calc-checkbox-label">
+                                <input type="checkbox" id="calcCophan" value="100000" onchange="calculateBudget()">
+                                Thuê cổ phục Nhật Bình Lan Trần (100.000đ)
+                            </label>
+                            <label class="calc-checkbox-label">
+                                <input type="checkbox" id="calcCungandinh" value="50000" onchange="calculateBudget()">
+                                Vé tham quan Cung An Định (50.000đ)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="calc-option-group">
+                        <label class="calc-label">Giải trí tối (Nhậu & Hát Karaoke)</label>
+                        <div class="calc-checkbox-list">
+                            <label class="calc-checkbox-label">
+                                <input type="checkbox" id="calcParty1" checked value="400000" onchange="calculateBudget()">
+                                Tăng 1: Nhậu nhẹt Phố Tây / bia sân vườn (400.000đ)
+                            </label>
+                            <label class="calc-checkbox-label">
+                                <input type="checkbox" id="calcParty2" checked value="300000" onchange="calculateBudget()">
+                                Tăng 2: Hát Karaoke Crown/Smile cháy máy (300.000đ)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="calc-option-group">
+                        <label class="calc-label">Thuê xe máy tại Huế</label>
+                        <select id="calcBike" class="calc-select" onchange="calculateBudget()">
+                            <option value="250000">Thuê xe máy + xăng xe đoàn (250.000đ)</option>
+                            <option value="0">Không thuê xe máy (0đ)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="budget-summary-box">
+                    <i class="ri-flight-takeoff-line" style="font-size: 48px; color: var(--sunset-gold); margin-bottom: 10px;"></i>
+                    <h3 style="font-family: var(--font-heading); font-size: 24px; color: var(--pure-white);">
+                        Tổng chi phí dự tính / thành viên
+                    </h3>
+                    <div class="summary-total" id="budgetTotal">3.710.000 đ</div>
+                    <p class="summary-desc" style="margin-bottom: 15px;">Đã bao gồm ăn uống cơ bản (bún bò, bánh bèo, chè...) khoảng 500.000đ/người cho cả chuyến đi (các bữa chính nhậu nhẹt và hát hò đã được cộng riêng ở bảng chọn).</p>
+                    <p class="summary-desc" style="color: var(--sunset-gold); font-weight: 700;">Dự tính quỹ chi tiêu đi máy bay về khoảng 3.800.000 - 4.200.000 đ/người.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section class="map-section" id="map">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <span class="section-tag">Sơ đồ hành trình</span>
+                <h2 class="section-title">Bản Đồ Điểm Đến Tương Tác</h2>
+                <p style="max-width: 600px; margin: 0 auto; opacity: 0.8; font-size: 15px;">Bấm chọn các chấm vàng trên bản đồ mô phỏng sông Hương để khám phá thông tin nhanh về địa điểm tham quan chính.</p>
+            </div>
+            
+            <div class="map-container">
+                <div class="map-visual">
+                    <svg class="map-svg" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="riverGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#3b1642" />
+                                <stop offset="50%" stop-color="#4a90e2" />
+                                <stop offset="100%" stop-color="#50e3c2" />
+                            </linearGradient>
+                        </defs>
+                        
+                        <!-- River Song Huong -->
+                        <path d="M 50,350 Q 150,280 250,240 T 450,180 T 550,100" fill="none" stroke="url(#riverGradient)" stroke-width="28" stroke-linecap="round" opacity="0.6"/>
+                        
+                        <!-- Bridge Icon (Trang Tien) -->
+                        <line x1="430" y1="170" x2="470" y2="210" stroke="#d4a373" stroke-width="6" stroke-linecap="round"/>
+                        <text x="445" y="160" fill="#d4a373" font-size="8" font-weight="bold">Cầu Trường Tiền</text>
+                        
+                        <!-- Map Pins -->
+                        <g class="map-pin active" data-place="thienmu" transform="translate(180, 200)">
+                            <circle r="8"/>
+                            <text x="12" y="4">Chùa Thiên Mụ</text>
+                        </g>
+                        
+                        <g class="map-pin" data-place="dainoi" transform="translate(360, 160)">
+                            <circle r="8"/>
+                            <text x="12" y="4">Đại Nội</text>
+                        </g>
+                        
+                        <g class="map-pin" data-place="thuyxuan" transform="translate(140, 290)">
+                            <circle r="8"/>
+                            <text x="12" y="4">Làng Hương Thủy Xuân</text>
+                        </g>
+                        
+                        <g class="map-pin" data-place="khaidinh" transform="translate(280, 340)">
+                            <circle r="8"/>
+                            <text x="12" y="4">Lăng Khải Định</text>
+                        </g>
+                        
+                        <g class="map-pin" data-place="tamgiang" transform="translate(520, 70)">
+                            <circle r="8"/>
+                            <text x="-110" y="4">Phá Tam Giang (ngoại ô)</text>
+                        </g>
+                        
+                        <g class="map-pin" data-place="dongba" transform="translate(480, 180)">
+                            <circle r="8"/>
+                            <text x="12" y="4">Chợ Đông Ba</text>
+                        </g>
+                    </svg>
+                </div>
+                
+                <!-- Detail Display Panel -->
+                <div class="map-info-card glass-panel">
+                    <div class="place-detail-box active" id="detail-thienmu">
+                        <img src="assets/truong_tien.png" alt="Chùa Thiên Mụ" class="place-image">
+                        <h3 class="place-title">Chùa Thiên Mụ</h3>
+                        <p class="place-desc">Ngôi chùa cổ linh thiêng soi bóng xuống dòng sông Hương phẳng lặng. Nơi cả đoàn ngắm hoàng hôn lộng lẫy và thưởng thức tào phớ dốc chùa cực bình yên.</p>
+                    </div>
+                    
+                    <div class="place-detail-box" id="detail-dainoi">
+                        <img src="assets/hero_hue.png" alt="Đại Nội Huế" class="place-image">
+                        <h3 class="place-title">Đại Nội Huế</h3>
+                        <p class="place-desc">Kinh thành xưa cổ kính của triều Nguyễn. Điểm check-in cổ phục Nhật Bình cực chất. Thuê đồ tại Lan Trần và tha hồ tạo dáng trước Ngọ Môn lộng lẫy.</p>
+                    </div>
+                    
+                    <div class="place-detail-box" id="detail-thuyxuan">
+                        <img src="assets/thuy_xuan.png" alt="Làng Hương Thủy Xuân" class="place-image">
+                        <h3 class="place-title">Làng Hương Thủy Xuân</h3>
+                        <p class="place-desc">Những bó hương đủ sắc màu xòe rộng như hoa. Nơi cả đoàn hóa thân thành các 'mệ Huế' hoặc chàng thơ dịu dàng, lưu lại những bức ảnh kỷ niệm khó quên.</p>
+                    </div>
+                    
+                    <div class="place-detail-box" id="detail-khaidinh">
+                        <img src="https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?auto=format&fit=crop&w=600&q=80" alt="Lăng Khải Định" class="place-image">
+                        <h3 class="place-title">Lăng Khải Định</h3>
+                        <p class="place-desc">Đỉnh cao kiến trúc khảm sành sứ rực rỡ, pha trộn phong cách kiến trúc Pháp - Việt. Khám phá cung Thiên Định nguy nga tuyệt mỹ.</p>
+                    </div>
+                    
+                    <div class="place-detail-box" id="detail-tamgiang">
+                        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=600&q=80" alt="Phá Tam Giang" class="place-image">
+                        <h3 class="place-title">Phá Tam Giang</h3>
+                        <p class="place-desc">Đầm phá lớn nhất Đông Nam Á. Trải nghiệm hoàng hôn dát vàng cực kỳ lãng mạn và thưởng thức hải sản đầm phá tươi ngon ngay tại chòi.</p>
+                    </div>
+                    
+                    <div class="place-detail-box" id="detail-dongba">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80" alt="Chợ Đông Ba" class="place-image">
+                        <h3 class="place-title">Chợ Đông Ba</h3>
+                        <p class="place-desc">Khu chợ sầm uất ngập tràn ẩm thực bình dân: bún hến, bánh khoái, nem lụi và hàng ngàn thức đặc sản mua mang về làm quà cực rẻ.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Itinerary / Schedule Section -->
+    <section class="itinerary-section" id="itinerary">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <span class="section-tag">Lịch trình chi tiết</span>
+                <h2 class="section-title">Lịch Trình Di Cư Của Đảng Lông Lá</h2>
+                <p style="max-width: 600px; margin: 0 auto; opacity: 0.8; font-size: 15px;">Tối ưu hóa các buổi tối nhậu nhẹt giao lưu và đi hát karaoke bung xõa cho đoàn 10 người.</p>
+            </div>
+            
+            <div class="tabs-header">
+                <button class="tab-btn active" data-day="day1">Ngày 23-24/07: Khởi hành & Cố Đô</button>
+                <button class="tab-btn" data-day="day2">Ngày 25/07: Lăng Tẩm & Biển Chiều</button>
+                <button class="tab-btn" data-day="day3">Ngày 26/07: Bánh Canh Mực & Bay Về</button>
+            </div>
+            
+            <!-- Day 1 Content -->
+            <div class="tab-content active" id="day1">
+                <div class="timeline">
+                    <!-- Item 0 (23/7 Night) -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge" style="border-color: var(--bright-amber);"><i class="ri-bus-fill"></i></div>
+                        <div class="timeline-card" style="border-left: 3px solid var(--bright-amber);">
+                            <span class="timeline-time">Tối 23/07 (19:30)</span>
+                            <span class="timeline-cost"><i class="ri-money-dollar-circle-line"></i> 450k-600k</span>
+                            <h3 class="timeline-title">Lên xe giường nằm xuất phát</h3>
+                            <p class="timeline-desc">Đoàn tập trung tại **số 165 Bưu điện Cầu Giấy**, lên xe giường nằm cabin của **HK Buslines** đi Huế.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 1 (24/7 Morning) -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge"><i class="ri-key-line"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-time">Sáng 24/07 (07:30)</span>
+                            <span class="timeline-cost"><i class="ri-money-dollar-circle-line"></i> ~162k</span>
+                            <h3 class="timeline-title">Đến Huế - Nhận xe máy & Check-in homestay</h3>
+                            <p class="timeline-desc">Nhận xe máy tại bến xe (3 xe ga). Di chuyển về homestay gửi đồ đạc sửa soạn hành trình.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge"><i class="ri-restaurant-line"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-time">08:20</span>
+                            <span class="timeline-cost"><i class="ri-money-dollar-circle-line"></i> ~40k</span>
+                            <h3 class="timeline-title">Ăn sáng Bún Bò Huế Bà Gái</h3>
+                            <p class="timeline-desc">Tô bún nóng hổi cay nồng đánh thức mọi giác quan sau đêm đi xe dài.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge"><i class="ri-history-line"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-time">09:00 - 12:00</span>
+                            <span class="timeline-cost"><i class="ri-money-dollar-circle-line"></i> 200k + Cổ phục</span>
+                            <h3 class="timeline-title">Chinh phục Đại Nội Huế</h3>
+                            <p class="timeline-desc">Khám phá Kinh Thành cổ kính. Có thể ghé tiệm Lan Trần thuê cổ phục Nhật Bình sống ảo tuyệt đẹp. Thưởng thức cafe muối mát lạnh tại cafe bắp Tan trước khi vào cổng.</p>
+                            <img src="assets/hero_hue.png" alt="Dai Noi" class="timeline-media">
+                        </div>
+                    </div>
+                    
+                    <!-- Item 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge"><i class="ri-store-line"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-time">12:15 - 13:30</span>
+                            <span class="timeline-cost"><i class="ri-money-dollar-circle-line"></i> ~70k</span>
+                            <h3 class="timeline-title">Ăn trưa oanh tạc Chợ Đông Ba</h3>
+                            <p class="timeline-desc">Oanh tạc ẩm thực bình dân tại chợ Đông Ba rồi về homestay nghỉ ngơi.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 5 -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge"><i class="ri-game-line"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-time">15:30 - 17:30</span>
+                            <span class="timeline-cost"><i class="ri-money-dollar-circle-line"></i> ~100k</span>
+                            <h3 class="timeline-title">Đánh cầu lông hoặc đi Lăng Minh Mạng</h3>
+                            <p class="timeline-desc">Tổ chức trận đấu giao lưu cầu lông tập thể rèn luyện thể lực hoặc đi lăng tẩm chiêm ngưỡng lịch sử.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge"><i class="ri-sun-cloudy-line"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-time">17:30 - 18:30</span>
+                            <span class="timeline-cost"><i class="ri-money-dollar-circle-line"></i> ~15k</span>
+                            <h3 class="timeline-title">Hoàng hôn & tào phớ Chùa Thiên Mụ</h3>
+                            <p class="timeline-desc">Ngắm hoàng hôn lộng lẫy và ăn tào phớ ngọt bùi bên dốc chùa Thiên Mụ.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 7 (Friday Night Nhậu & Karaoke) -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge" style="border-color: var(--bright-amber);"><i class="ri-goblet-line"></i></div>
+                        <div class="timeline-card" style="border-left: 3px solid var(--bright-amber);">
+                            <span class="timeline-time">19:30 - Đêm muộn</span>
+                            <span class="timeline-cost"><i class="ri-money-dollar-circle-line"></i> ~400k (Ăn nhậu + Hát)</span>
+                            <h3 class="timeline-title">Tăng 1: Nhậu Phố Tây & Tăng 2: Hát Karaoke Crown</h3>
+                            <p class="timeline-desc"><strong>Tăng 1:</strong> Cả đoàn đặt bàn ăn nhậu tưng bừng tại quán bia nổi tiếng Tà Vẹt / Hook Beer Garden dọc khu Phố Tây Võ Thị Sáu. Ăn đồ nướng, uống bia mát rượi.<br><strong>Tăng 2:</strong> Di chuyển đi hát Karaoke tập thể tại quán Karaoke Crown / Smile hoành tráng để cả đoàn cùng khoe giọng, quẩy hết mình gắn kết tình đồng đội.</p>
+                            <img src="assets/truong_tien.png" alt="Trang Tien Bridge" class="timeline-media">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 2 Content -->
+            <div class="tab-content" id="day2">
+                <div class="timeline">
+                    <!-- Item 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge"><i class="ri-restaurant-line"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-time">07:00 - 07:40</span>
+                            <span class="timeline-cost"><i class="ri-money-dollar-circle-line"></i> ~35k</span>
+                            <h3 class="timeline-title">Ăn sáng Bánh mỳ chảo Bếp Nhà Mơ</h3>
+                            <p class="timeline-desc">Khởi đầu ngày mới với đĩa bánh mỳ chảo ngập tràn pate và xúc xích rán nóng hổi thơm phức.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge"><i class="ri-home-gear-line"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-time">08:15 - 10:45</span>
+                            <span class="timeline-cost"><i class="ri-money-dollar-circle-line"></i> 300k (combo)</span>
+                            <h3 class="timeline-title">Tham quan Lăng Khải Định + Lăng Tự Đức</h3>
+                            <p class="timeline-desc">Dạo quanh lăng Khải Định khảm sành sứ độc đáo và lăng Tự Đức mát mẻ rợp bóng cây xanh.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge"><i class="ri-restaurant-line"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-time">11:00 - 12:00</span>
+                            <span class="timeline-cost"><i class="ri-money-dollar-circle-line"></i> ~90k</span>
+                            <h3 class="timeline-title">Ăn trưa Bánh bèo nậm lọc Huế Xưa</h3>
+                            <p class="timeline-desc">Thưởng thức khay bánh Huế đa dạng hoặc ăn món lạ vị Vịt lộn um bầu bé Đen.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge"><i class="ri-cup-line"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-time">14:30 - 15:30</span>
+                            <span class="timeline-cost"><i class="ri-money-dollar-circle-line"></i> ~20k</span>
+                            <h3 class="timeline-title">Ăn xế chiều Chè Mợ Tôn Đích</h3>
+                            <p class="timeline-desc">Thưởng thức chè bột lọc bọc heo quay giòn ngọt lạ miệng.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 5 -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge"><i class="ri-umbrella-line"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-time">15:30 - 18:30</span>
+                            <span class="timeline-cost"><i class="ri-money-dollar-circle-line"></i> ~80k</span>
+                            <h3 class="timeline-title">Biển Thuận An tắm mát & Ăn bánh ép</h3>
+                            <p class="timeline-desc">Tắm biển Thuận An giải nhiệt ngày hè cực đã. Thưởng thức bánh ép Huế dai ngậy tại quán Chị Gái / Huệ / Trang. (Option 2: Cung An Định).</p>
+                            <img src="assets/thuy_xuan.png" alt="Lang Huong" class="timeline-media">
+                        </div>
+                    </div>
+
+                    <!-- Item 6 (Saturday Night Nhậu & Karaoke) -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge" style="border-color: var(--bright-amber);"><i class="ri-restaurant-line"></i></div>
+                        <div class="timeline-card" style="border-left: 3px solid var(--bright-amber);">
+                            <span class="timeline-time">19:00 - Khuya</span>
+                            <span class="timeline-cost"><i class="ri-money-dollar-circle-line"></i> ~450k (Ăn tối + Hát)</span>
+                            <h3 class="timeline-title">Tăng 1: Cơm niêu Urban & Tăng 2: Hát Karaoke nhảy múa</h3>
+                            <p class="timeline-desc"><strong>Tăng 1:</strong> Ăn tối cơm niêu Huế - Urban ấm cúng. Sau đó di chuyển ra các quán nướng nhậu vỉa hè ven bờ sông Hương hóng gió mát lộng, trò chuyện sảng khoái.<br><strong>Tăng 2:</strong> Tiếp tục đi quẩy tăng 2 tại quán Karaoke địa phương để hát hò và quây quần bên nhau nốt đêm cuối cùng tại Huế.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Day 3 Content -->
+            <div class="tab-content" id="day3">
+                <div class="timeline">
+                    <!-- Item 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge"><i class="ri-hotel-line"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-time">Sáng 26/07 (07:00)</span>
+                            <h3 class="timeline-title">Check-out Homestay</h3>
+                            <p class="timeline-desc">Thu dọn hành lý cá nhân và check-out homestay.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge"><i class="ri-restaurant-line"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-time">07:30 - 08:30</span>
+                            <span class="timeline-cost"><i class="ri-money-dollar-circle-line"></i> ~35k</span>
+                            <h3 class="timeline-title">Ăn sáng Bánh mỳ heo quay Điện Lực</h3>
+                            <p class="timeline-desc">Thưởng thức bánh mỳ heo quay giòn bì Điện Lực hoặc bún thịt nướng trước khi đi mua sắm đặc sản.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge"><i class="ri-shopping-bag-line"></i></div>
+                        <div class="timeline-card">
+                            <span class="timeline-time">08:30 - 10:30</span>
+                            <h3 class="timeline-title">Mua quà lưu niệm & cafe muối</h3>
+                            <p class="timeline-desc">Mua mè xửng, tôm chua làm quà. Uống ly cafe muối béo ngậy cuối cùng.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 4 (Updated back to Flight) -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge" style="border-color: var(--sunset-gold);"><i class="ri-flight-takeoff-line"></i></div>
+                        <div class="timeline-card" style="border-left: 3px solid var(--sunset-gold);">
+                            <span class="timeline-time">Trưa 26/07 (11:30)</span>
+                            <span class="timeline-cost"><i class="ri-money-dollar-circle-line"></i> ~1.5M (Vé bay)</span>
+                            <h3 class="timeline-title">Ra sân bay Phú Bài - Bay về Hà Nội</h3>
+                            <p class="timeline-desc">Đoàn di chuyển ra Sân bay Quốc tế Phú Bài (Huế). Làm thủ tục check-in đón chuyến bay trưa/chiều khởi hành về lại Hà Nội. Kết thúc tốt đẹp chuyến du lịch hè đầy kỷ niệm của Đảng Lông Lá! 🥳🎉</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hue Culinary Tour Section -->
+    <section class="culinary-section" id="food">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <span class="section-tag">Ẩm thực cung đình & bình dân</span>
+                <h2 class="section-title">Tinh Hoa Món Ngon Xứ Huế</h2>
+                <p style="max-width: 600px; margin: 0 auto; opacity: 0.8; font-size: 15px;">Click vào các món ăn đặc trưng dưới đây để xem mô tả chi tiết và các địa chỉ ăn chuẩn vị nhất.</p>
+            </div>
+            
+            <div class="food-grid">
+                <!-- Food 1 -->
+                <div class="food-card" data-food="bunbo">
+                    <div class="food-img-wrapper">
+                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="background: linear-gradient(135deg, #4b1a54, #733c7c)">
+                            <circle cx="50" cy="50" r="30" fill="#d4a373" opacity="0.8"/>
+                            <path d="M30,50 Q50,75 70,50" stroke="#1c0a21" stroke-width="6" stroke-linecap="round"/>
+                            <line x1="30" y1="40" x2="70" y2="40" stroke="#f3e8ee" stroke-width="4"/>
+                            <line x1="35" y1="32" x2="65" y2="32" stroke="#f3e8ee" stroke-width="4"/>
+                            <text x="50" y="90" fill="#f3e8ee" font-size="10" font-weight="bold" text-anchor="middle">Bún Bò Huế</text>
+                        </svg>
+                    </div>
+                    <div class="food-info">
+                        <span class="food-tag">Món nước trứ danh</span>
+                        <h3 class="food-name">Bún Bò Huế Bà Gái</h3>
+                    </div>
+                </div>
+                
+                <!-- Food 2 -->
+                <div class="food-card" data-food="banhhue">
+                    <div class="food-img-wrapper">
+                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="background: linear-gradient(135deg, #78294a, #ab5378)">
+                            <rect x="25" y="25" width="50" height="50" rx="10" fill="#d4a373" opacity="0.8"/>
+                            <circle cx="50" cy="50" r="10" fill="#e76f51"/>
+                            <line x1="15" y1="15" x2="85" y2="85" stroke="#f3e8ee" stroke-dasharray="3,3"/>
+                            <text x="50" y="90" fill="#f3e8ee" font-size="10" font-weight="bold" text-anchor="middle">Bánh Bèo Nậm Lọc</text>
+                        </svg>
+                    </div>
+                    <div class="food-info">
+                        <span class="food-tag">Đặc sản bánh Huế</span>
+                        <h3 class="food-name">Bánh Bèo - Nậm - Lọc</h3>
+                    </div>
+                </div>
+                
+                <!-- Food 3 -->
+                <div class="food-card" data-food="comhen">
+                    <div class="food-img-wrapper">
+                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="background: linear-gradient(135deg, #1c4a5c, #3f7b92)">
+                            <path d="M 20,40 Q 50,20 80,40 L 70,80 Q 50,90 30,80 Z" fill="#d4a373" opacity="0.8"/>
+                            <circle cx="45" cy="50" r="4" fill="#1c0a21"/>
+                            <circle cx="55" cy="55" r="4" fill="#1c0a21"/>
+                            <circle cx="50" cy="42" r="3" fill="#e76f51"/>
+                            <text x="50" y="90" fill="#f3e8ee" font-size="10" font-weight="bold" text-anchor="middle">Cơm Hến / Bún Hến</text>
+                        </svg>
+                    </div>
+                    <div class="food-info">
+                        <span class="food-tag">Bình dân & đậm đà</span>
+                        <h3 class="food-name">Cơm Hến & Bún Hến</h3>
+                    </div>
+                </div>
+                
+                <!-- Food 4 -->
+                <div class="food-card" data-food="chehue">
+                    <div class="food-img-wrapper">
+                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="background: linear-gradient(135deg, #2b5c3e, #53946d)">
+                            <path d="M35,30 L65,30 L60,70 Q50,85 40,70 Z" fill="#d4a373" opacity="0.8"/>
+                            <line x1="50" y1="20" x2="50" y2="60" stroke="#e76f51" stroke-width="4"/>
+                            <circle cx="50" cy="15" r="5" fill="#e76f51"/>
+                            <text x="50" y="90" fill="#f3e8ee" font-size="10" font-weight="bold" text-anchor="middle">Chè Mợ Tôn Đích</text>
+                        </svg>
+                    </div>
+                    <div class="food-info">
+                        <span class="food-tag">Tráng miệng tao nhã</span>
+                        <h3 class="food-name">Chè Mợ Tôn Đích</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Food Detail Modal -->
+    <div class="modal" id="foodModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose"><i class="ri-close-line"></i></button>
+            <h3 class="modal-title" id="mTitle">Tên món ăn</h3>
+            <p class="modal-desc" id="mDesc">Mô tả chi tiết món ăn xứ Huế.</p>
+            <div class="modal-places-title">Địa Chỉ Ăn Ngon Gợi Ý:</div>
+            <ul class="modal-places-list" id="mPlaces">
+                <!-- Will be injected by JS -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Participant Manager Section -->
+    <section class="participants-section" id="participants">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <span class="section-tag">Quản lý di cư của Đảng Lông Lá 🌸</span>
+                <h2 class="section-title">Hành Khách Lông Lá Lên Xe</h2>
+                <p style="max-width: 600px; margin: 0 auto; opacity: 0.8; font-size: 15px;">Dễ dàng theo dõi thành viên trong đoàn, phân chia nhiệm vụ (trưởng đoàn, thủ quỹ, phó nháy, hậu cần) và tích chọn trạng thái sẵn sàng khởi hành.</p>
+            </div>
+
+            <div class="glass-panel" style="margin-bottom: 40px;">
+                <div class="participants-header">
+                    <h3 style="font-family: var(--font-heading); font-size: 24px; color: var(--pure-white);">
+                        Thêm Thành Viên Mới
+                    </h3>
+                    <div class="participants-stats" id="memberStats">
+                        Tổng số: 10 | Đã sẵn sàng: 0
+                    </div>
+                </div>
+
+                <div class="participants-form">
+                    <input type="text" id="memberNameInput" class="input-field" placeholder="Nhập tên thành viên..." style="flex-grow: 1;">
+                    <select id="memberRoleSelect" class="input-field select-field">
+                        <option value="truongdoan">Trưởng Đoàn</option>
+                        <option value="thuquy">Thủ Quỹ</option>
+                        <option value="phonhay">Phó Nháy</option>
+                        <option value="haucan">Hậu Cần</option>
+                        <option value="thanhvien" selected>Thành Viên</option>
+                    </select>
+                    <button class="btn-secondary" id="addMemberBtn">
+                        <i class="ri-user-add-line"></i> Thêm thành viên
+                    </button>
+                </div>
+
+                <div class="participants-list" id="membersContainer">
+                    <!-- Dynamic rendering by JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smart Checklist Section -->
+    <section class="checklist-section" id="checklist">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <span class="section-tag">Chuẩn bị trước chuyến đi</span>
+                <h2 class="section-title">Hành Lý Của Đảng Lông Lá Cần Gì?</h2>
+                <p style="max-width: 600px; margin: 0 auto; opacity: 0.8; font-size: 15px;">Tích chọn danh sách dưới đây để chuẩn bị đầy đủ đồ dùng. Trạng thái checklist sẽ được tự động lưu trữ trên trình duyệt của bạn.</p>
+            </div>
+            
+            <div class="checklist-grid">
+                <!-- Category 1 -->
+                <div class="checklist-box">
+                    <h3 class="checklist-title">
+                        <i class="ri-shirt-line"></i> Trang Phục & Phụ Kiện
+                    </h3>
+                    <div class="checklist-items">
+                        <label class="checklist-item">
+                            <input type="checkbox" class="check-box-input" data-id="item1">
+                            <span class="checkbox-custom"><i class="ri-check-line"></i></span>
+                            <span class="checklist-text">Đồ lam hoặc đồ lịch sự kín đáo (viếng lăng Khải Định, Tự Đức)</span>
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" class="check-box-input" data-id="item2">
+                            <span class="checkbox-custom"><i class="ri-check-line"></i></span>
+                            <span class="checklist-text">Cổ phục Nhật Bình (thuê tại Lan Trần 96 Lê Duẩn sống ảo Đại Nội)</span>
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" class="check-box-input" data-id="item3">
+                            <span class="checkbox-custom"><i class="ri-check-line"></i></span>
+                            <span class="checklist-text">Mũ rộng vành & kính mát (tránh nắng gắt ban ngày)</span>
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" class="check-box-input" data-id="item4">
+                            <span class="checkbox-custom"><i class="ri-check-line"></i></span>
+                            <span class="checklist-text">Giày bệt hoặc giày thể thao bền đi bộ (quãng đi bộ Đại Nội khá dài)</span>
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" class="check-box-input" data-id="item9">
+                            <span class="checkbox-custom"><i class="ri-check-line"></i></span>
+                            <span class="checklist-text">Đồ bơi & kính bơi (tắm biển Thuận An chiều Thứ Bảy)</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Category 2 -->
+                <div class="checklist-box">
+                    <h3 class="checklist-title">
+                        <i class="ri-briefcase-line"></i> Chăm Sóc & Thiết Bị
+                    </h3>
+                    <div class="checklist-items">
+                        <label class="checklist-item">
+                            <input type="checkbox" class="check-box-input" data-id="item5">
+                            <span class="checkbox-custom"><i class="ri-check-line"></i></span>
+                            <span class="checklist-text">Kem chống nắng SPF 50+ (bảo vệ da dưới cái nắng gay gắt tháng 7)</span>
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" class="check-box-input" data-id="item6">
+                            <span class="checkbox-custom"><i class="ri-check-line"></i></span>
+                            <span class="checklist-text">Bình nước giữ nhiệt bỏ túi (đổ đầy nước đá mát mẻ)</span>
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" class="check-box-input" data-id="item7">
+                            <span class="checkbox-custom"><i class="ri-check-line"></i></span>
+                            <span class="checklist-text">Xịt côn trùng (rất cần khi đi dạo lăng Tự Đức cây xanh rậm rạp)</span>
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" class="check-box-input" data-id="item8">
+                            <span class="checkbox-custom"><i class="ri-check-line"></i></span>
+                            <span class="checklist-text">Quạt cầm tay mini & sạc dự phòng điện thoại</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="progress-container glass-panel">
+                <div class="progress-label">
+                    <span>Mức độ sẵn sàng của hành lý</span>
+                    <span id="progressPercent">0%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progressBar"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Save State Toast Notification -->
+    <div class="toast" id="saveToast">
+        <i class="ri-checkbox-circle-line" style="color: var(--sunset-gold); font-size: 20px;"></i>
+        <span id="toastText">Đã tự động lưu trạng thái!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Đảng Lông Lá di cư vô Huế. Lịch trình cập nhật từ Google Sheets.</p>
+            <p style="font-size: 12px; opacity: 0.5;">Được thiết kế sinh động bằng HTML & CSS thuần. Chúc Đảng có chuyến đi Huế bùng nổ!</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactive Scripts -->
+    <script>
+        // 1. Sticky Navigation Header
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 2. Interactive Weather Time Suggestion Slider
+        const timeSlider = document.getElementById('timeSlider');
+        const tips = {
+            6: { time: "06:00 Sáng", temp: "Dịu mát (25°C)", desc: "Không khí bình minh trong lành trên sông Hương. Cực kỳ thích hợp đi dạo bộ ven bờ sông hoặc chạy bộ ngắm cảnh thành phố bình yên." },
+            8: { time: "08:00 Sáng", temp: "Dịu mát (28°C)", desc: "Khung giờ vàng để tham quan Đại Nội Huế hoặc lăng tẩm. Nắng nhẹ chiếu rọi tường thành cổ kính giúp ảnh check-in lên màu tuyệt đẹp." },
+            10: { time: "10:00 Sáng", temp: "Khá nóng (32°C)", desc: "Trời bắt đầu nắng gắt. Hãy ưu tiên tham quan lăng tẩm có nhiều bóng cây râm mát (như Lăng Minh Mạng hoặc Lăng Tự Đức)." },
+            12: { time: "12:00 Trưa", temp: "Rất nóng (36-37°C)", desc: "Cao điểm nắng nóng! Hãy thưởng thức ẩm thực Huế trong phòng mát và nghỉ ngơi tại khách sạn, tuyệt đối tránh ra đường lúc này." },
+            14: { time: "14:00 Chiều", temp: "Nắng gắt (36°C)", desc: "Vẫn rất oi bức. Khuyên dùng ghé các tiệm cà phê Huế mát mẻ (cà phê muối) hoặc ghé thăm bảo tàng Cung đình có phòng lạnh." },
+            16: { time: "16:00 Chiều", temp: "Dịu dần (32°C)", desc: "Thời điểm lý tưởng để ghé Chùa Thiên Mụ hay Làng hương Thủy Xuân đón hoàng hôn thơ mộng. Gió sông thổi lồng lộng mát mẻ." },
+            18: { time: "18:00 Tối", temp: "Mát mẻ (29°C)", desc: "Mặt trời lặn. Khung cảnh hoàng hôn Phá Tam Giang lộng lẫy hoặc dạo bộ bên cầu gỗ lim sông Hương là hoạt động lý tưởng." },
+            20: { time: "20:00 Tối", temp: "Dễ chịu (27°C)", desc: "Thành phố rực rỡ ánh đèn. Tuyệt vời nhất là lên thuyền rồng nghe ca Huế trên sông Hương và dạo chợ đêm phố Tây náo nhiệt." }
+        };
+
+        timeSlider.addEventListener('input', (e) => {
+            const val = parseInt(e.target.value);
+            let closestKey = 8;
+            let minDiff = 24;
+            for (let key in tips) {
+                let diff = Math.abs(parseInt(key) - val);
+                if (diff < minDiff) {
+                    minDiff = diff;
+                    closestKey = key;
+                }
+            }
+            
+            const currentTip = tips[closestKey];
+            document.getElementById('slider-time-text').innerText = currentTip.time;
+            document.getElementById('slider-temp-text').innerText = currentTip.temp;
+            document.getElementById('timeTip').innerText = currentTip.desc;
+        });
+
+        // 3. Interactive Map Pins
+        const pins = document.querySelectorAll('.map-pin');
+        const detailBoxes = document.querySelectorAll('.place-detail-box');
+
+        pins.forEach(pin => {
+            pin.addEventListener('click', () => {
+                pins.forEach(p => p.classList.remove('active'));
+                detailBoxes.forEach(b => b.classList.remove('active'));
+                
+                pin.classList.add('active');
+                const placeId = pin.getAttribute('data-place');
+                document.getElementById(`detail-${placeId}`).classList.add('active');
+            });
+        });
+
+        // 4. Day Tabs Navigation
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                btn.classList.add('active');
+                const dayId = btn.getAttribute('data-day');
+                document.getElementById(dayId).classList.add('active');
+            });
+        });
+
+        // 5. Food Explorer Modal
+        const foodCards = document.querySelectorAll('.food-card');
+        const modal = document.getElementById('foodModal');
+        const modalClose = document.getElementById('modalClose');
+        
+        const foodDetails = {
+            bunbo: {
+                title: "Bún Bò Huế Bà Gái Đậm Đà",
+                desc: "Tô bún bò Bà Gái nức tiếng xứ Huế với nước dùng thơm lừng vị ruốc sả, cay tê đậm đà bản sắc. Topping gồm thịt nạm bò mềm ngậy, giò heo giòn bùi và tiết đông mềm mịn ăn kèm rổ rau sống tươi ngon.",
+                places: [
+                    "Bún bò Bà Gái - Địa chỉ ăn sáng chốt của nhóm vào sáng 24/07",
+                    "Bún bò Ông Vọng - 5 Nguyễn Du",
+                    "Bún bò Mệ Kéo - 20 Bạch Đằng"
+                ]
+            },
+            banhhue: {
+                title: "Bộ Ba Bánh Huế: Bèo - Nậm - Lọc",
+                desc: "Thức quà bánh gạo, bột lọc thanh nhã. Bánh bèo đúc chén đất rắc tôm cháy giòn rụm, bánh nậm dẹt mỏng thơm hương lá dong, bánh bột lọc trong suốt dai dai bao bọc nhân tôm thịt đậm đà.",
+                places: [
+                    "Quán Bánh Bèo Nậm Lọc Huế Xưa - Địa chỉ ăn trưa chính thức ngày 25/07",
+                    "Quán O Hanh - 11 Phù Động Cát",
+                    "Quán Bà Đỏ - 8 Nguyễn Bỉnh Khiêm"
+                ]
+            },
+            comhen: {
+                title: "Cơm Hến & Bún Hến Cay Xé Lưỡi",
+                desc: "Món ăn mộc mạc làm từ cơm nguội, hến xào, tóp mỡ chiên giòn, lạc rang, rau thơm (hoa chuối, môn dọc mùng) chan nước hến luộc nóng hổi, pha thìa ruốc Huế thơm phức. Vừa ăn vừa xuýt xoa vì vị cay đặc trưng của người Huế.",
+                places: [
+                    "Khu ẩm thực Chợ Đông Ba (Đi ăn trưa ngày 24/07)",
+                    "Cơm hến Hoa Đông - Cồn Hến (Phường Vĩ Dạ)",
+                    "Quán cơm hến Đập Đá - 1 Hàn Mặc Tử"
+                ]
+            },
+            chehue: {
+                title: "Chè Mợ Tôn Đích Cạnh Công Viên",
+                desc: "Quán chè huyền thoại nằm ngay cổng công viên Thương Bạc. Thực đơn hàng chục món chè đa dạng, nổi tiếng nhất là món chè bột lọc bọc heo quay dai bùi, mặn ngọt kết hợp độc đáo khó tả.",
+                places: [
+                    "Chè Mợ Tôn Đích - Đi ăn xế chiều ngày 25/07 trước khi ra biển Thuận An",
+                    "Chè Hẻm Hùng Vương - 1 Kiệt 29 Hùng Vương",
+                    "Chè Cung Đình Huế - 31 Nguyễn Huệ"
+                ]
+            }
+        };
+
+        foodCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const foodKey = card.getAttribute('data-food');
+                const details = foodDetails[foodKey];
+                
+                document.getElementById('mTitle').innerText = details.title;
+                document.getElementById('mDesc').innerText = details.desc;
+                
+                const list = document.getElementById('mPlaces');
+                list.innerHTML = '';
+                details.places.forEach(place => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<i class="ri-map-pin-2-fill"></i> ${place}`;
+                    list.appendChild(li);
+                });
+                
+                modal.classList.add('active');
+            });
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // 6. Packing Checklist logic
+        const checkboxes = document.querySelectorAll('.check-box-input');
+        const progressBar = document.getElementById('progressBar');
+        const progressPercent = document.getElementById('progressPercent');
+        const saveToast = document.getElementById('saveToast');
+
+        function updateProgress() {
+            const total = checkboxes.length;
+            let checkedCount = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) checkedCount++;
+            });
+            const percent = Math.round((checkedCount / total) * 100);
+            progressBar.style.width = `${percent}%`;
+            progressPercent.innerText = `${percent}%`;
+        }
+
+        function triggerToast(message) {
+            document.getElementById('toastText').innerText = message;
+            saveToast.classList.add('show');
+            setTimeout(() => {
+                saveToast.classList.remove('show');
+            }, 2000);
+        }
+
+        function saveChecklistState() {
+            const state = {};
+            checkboxes.forEach(cb => {
+                state[cb.getAttribute('data-id')] = cb.checked;
+            });
+            localStorage.setItem('hueChecklistState', JSON.stringify(state));
+            triggerToast("Đã tự động lưu trạng thái hành lý!");
+        }
+
+        function loadChecklistState() {
+            const stateStr = localStorage.getItem('hueChecklistState');
+            if (stateStr) {
+                const state = JSON.parse(stateStr);
+                checkboxes.forEach(cb => {
+                    const id = cb.getAttribute('data-id');
+                    if (state[id] !== undefined) {
+                        cb.checked = state[id];
+                    }
+                });
+            }
+            updateProgress();
+        }
+
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', () => {
+                updateProgress();
+                saveChecklistState();
+            });
+        });
+
+
+        // 7. Participant Management Logic
+        const initialMembers = [
+            { id: "m1", name: "Phạm Duy Linh", role: "truongdoan", ready: true },
+            { id: "m2", name: "Lê Phương Thảo", role: "thuquy", ready: true },
+            { id: "m3", name: "Nguyễn Quỳnh Chi", role: "phonhay", ready: true },
+            { id: "m4", name: "Đỗ Ngọc Anh", role: "thanhvien", ready: true },
+            { id: "m5", name: "Nguyễn Quang Nhật", role: "haucan", ready: true },
+            { id: "m6", name: "Vũ Lê Cử", role: "thanhvien", ready: false },
+            { id: "m7", name: "Trịnh Ngọc Khuê", role: "thanhvien", ready: false },
+            { id: "m8", name: "Khánh Loan", role: "thanhvien", ready: true },
+            { id: "m9", name: "Thanh Nhàn", role: "thanhvien", ready: false },
+            { id: "m10", name: "Nguyễn Hoàng Bảo Ngân", role: "thanhvien", ready: false },
+            { id: "m11", name: "Phan Trà My", role: "thanhvien", ready: false },
+            { id: "m12", name: "HT Đạt", role: "thanhvien", ready: false },
+            { id: "m13", name: "Người nhà Chi Ng", role: "thanhvien", ready: true },
+            { id: "m14", name: "Phạm Kim Chi", role: "thanhvien", ready: true },
+            { id: "m15", name: "Hoàng Yến", role: "thanhvien", ready: true },
+        ];
+
+        let members = [];
+
+        function renderMembers() {
+            const container = document.getElementById('membersContainer');
+            container.innerHTML = '';
+            
+            let readyCount = 0;
+            members.forEach(member => {
+                if (member.ready) readyCount++;
+                
+                const card = document.createElement('div');
+                card.className = 'member-card';
+                card.innerHTML = `
+                    <div class="member-info">
+                        <div class="member-name">${member.name}</div>
+                        <span class="member-role role-${member.role}">${getRoleName(member.role)}</span>
+                    </div>
+                    <div class="member-actions">
+                        <button class="member-status ${member.ready ? 'status-ready' : 'status-preparing'}" onclick="toggleMemberReady('${member.id}')">
+                            <i class="${member.ready ? 'ri-checkbox-circle-fill' : 'ri-checkbox-blank-circle-line'}"></i>
+                            ${member.ready ? 'Sẵn sàng' : 'Chuẩn bị'}
+                        </button>
+                        <button class="btn-delete" onclick="deleteMember('${member.id}')">
+                            <i class="ri-delete-bin-line"></i>
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+            document.getElementById('memberStats').innerText = `Tổng số: ${members.length} | Đã sẵn sàng: ${readyCount}`;
+        }
+
+        function getRoleName(role) {
+            const roles = {
+                truongdoan: "Trưởng Đoàn",
+                thuquy: "Thủ Quỹ",
+                phonhay: "Phó Nháy",
+                haucan: "Hậu Cần",
+                thanhvien: "Thành Viên"
+            };
+            return roles[role] || "Thành Viên";
+        }
+
+        window.toggleMemberReady = function(id) {
+            const member = members.find(m => m.id === id);
+            if (member) {
+                member.ready = !member.ready;
+                saveMembersState();
+                renderMembers();
+                triggerToast(`Đã cập nhật trạng thái của ${member.name}!`);
+            }
+        };
+
+        window.deleteMember = function(id) {
+            const memberIndex = members.findIndex(m => m.id === id);
+            if (memberIndex > -1) {
+                const name = members[memberIndex].name;
+                members.splice(memberIndex, 1);
+                saveMembersState();
+                renderMembers();
+                triggerToast(`Đã xóa thành viên ${name}!`);
+            }
+        };
+
+        document.getElementById('addMemberBtn').addEventListener('click', () => {
+            const nameInput = document.getElementById('memberNameInput');
+            const roleSelect = document.getElementById('memberRoleSelect');
+            
+            const name = nameInput.value.trim();
+            if (!name) {
+                alert("Vui lòng nhập tên thành viên!");
+                return;
+            }
+            
+            const newMember = {
+                id: 'm' + Date.now(),
+                name: name,
+                role: roleSelect.value,
+                ready: false
+            };
+            
+            members.push(newMember);
+            nameInput.value = '';
+            saveMembersState();
+            renderMembers();
+            triggerToast(`Đã thêm ${name} vào danh sách!`);
+        });
+
+        function saveMembersState() {
+            localStorage.setItem('hueMembersState', JSON.stringify(members));
+        }
+
+        function loadMembersState() {
+            const stateStr = localStorage.getItem('hueMembersState');
+            if (stateStr) {
+                members = JSON.parse(stateStr);
+            } else {
+                members = [...initialMembers];
+            }
+            renderMembers();
+        }
+
+        // 8. Dynamic Budget Calculation Logic (Updated for Go-Back split and Party checkboxes)
+        window.calculateBudget = function() {
+            const transportGo = parseInt(document.getElementById('calcTransportGo').value);
+            const transportBack = parseInt(document.getElementById('calcTransportBack').value);
+            const homestay = parseInt(document.getElementById('calcHomestay').value);
+            const bike = parseInt(document.getElementById('calcBike').value);
+            
+            let ticketCost = 0;
+            if (document.getElementById('calcDainoi').checked) ticketCost += parseInt(document.getElementById('calcDainoi').value);
+            if (document.getElementById('calcLangs').checked) ticketCost += parseInt(document.getElementById('calcLangs').value);
+            if (document.getElementById('calcCophan').checked) ticketCost += parseInt(document.getElementById('calcCophan').value);
+            if (document.getElementById('calcCungandinh').checked) ticketCost += parseInt(document.getElementById('calcCungandinh').value);
+            
+            let partyCost = 0;
+            if (document.getElementById('calcParty1').checked) partyCost += parseInt(document.getElementById('calcParty1').value);
+            if (document.getElementById('calcParty2').checked) partyCost += parseInt(document.getElementById('calcParty2').value);
+            
+            // Fixed food cost estimate (excl. parties): 500.000đ per person for basic breakfasts/lunches
+            const foodEstimate = 500000;
+            
+            const total = transportGo + transportBack + homestay + bike + ticketCost + partyCost + foodEstimate;
+            
+            const formatter = new Intl.NumberFormat('vi-VN', {
+                style: 'currency',
+                currency: 'VND'
+            });
+            
+            document.getElementById('budgetTotal').innerText = formatter.format(total).replace('₫', 'đ');
+        }
+
+        // Initialize state on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadChecklistState();
+            loadMembersState();
+            calculateBudget();
+        });
+    </script>
+</body>
+</html>
