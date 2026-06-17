@@ -196,7 +196,6 @@ header.scrolled {
 .hero-desc {
     font-size: 18px;
     color: var(--light-lavender);
-    margin-bottom: 40px;
     opacity: 0.9;
 }
 
@@ -216,6 +215,7 @@ header.scrolled {
     border: none;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(231, 111, 81, 0.3);
+    margin-top: 25px;
 }
 
 .btn-primary:hover {
