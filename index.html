@@ -70,6 +70,36 @@
         display: block;
       }
 
+      .homestay-vote {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+
+      .homestay-vote-btn {
+        padding: 8px 14px;
+        font-size: 12px;
+        flex: 1;
+      }
+
+      .homestay-vote-btn.is-voted {
+        border-color: var(--sunset-gold);
+        color: var(--sunset-gold);
+      }
+
+      .homestay-vote-count {
+        font-size: 12px;
+        opacity: 0.9;
+        white-space: nowrap;
+      }
+
+      .homestay-card.is-leading {
+        border-color: var(--sunset-gold);
+        box-shadow: 0 0 24px rgba(231, 111, 81, 0.15);
+      }
+
       .calc-select {
         width: 100%;
         background: #25102d;
@@ -262,13 +292,44 @@
             "
           >
             Chi tiết các homestay được lựa chọn so sánh trong bảng tính, tính
-            toán chi phí trung bình trên mỗi thành viên cho 2 đêm.
+            toán chi phí trung bình trên mỗi thành viên cho 2 đêm. Mỗi thành
+            viên có thể bình chọn nhiều homestay yêu thích (bấm lại để bỏ chọn).
           </p>
+        </div>
+
+        <div
+          class="glass-panel"
+          style="margin-bottom: 30px; padding: 20px; text-align: center"
+        >
+          <div
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              gap: 12px;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            <label for="voterNameSelect" style="font-size: 14px; opacity: 0.9"
+              >Bình chọn với tên:</label
+            >
+            <select
+              id="voterNameSelect"
+              class="input-field select-field"
+              style="min-width: 220px"
+            >
+              <option value="">-- Chọn thành viên --</option>
+            </select>
+            <span
+              id="myVoteLabel"
+              style="font-size: 13px; color: var(--sunset-gold)"
+            ></span>
+          </div>
         </div>
 
         <div class="homestay-grid">
             <!-- Homestay 6 -->
-          <div class="homestay-card">
+          <div class="homestay-card" data-slug="othuys-house">
             <img
               src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/847472946.jpg?k=e5c10052e0590a2c0e0d1e2173004422420587f29dfad9e2e3c07f9b1fbe0b62&o="
               alt="Hien apartment"
@@ -297,6 +358,18 @@
                   ><i class="ri-check-line"></i> Sạch sẽ chu đáo</span
                 >
               </div>
+              <div class="homestay-vote">
+                <button
+                  type="button"
+                  class="btn-secondary homestay-vote-btn"
+                  data-slug="othuys-house"
+                >
+                  <i class="ri-thumb-up-line"></i> Bình chọn
+                </button>
+                <span class="homestay-vote-count" data-slug="othuys-house"
+                  >0 phiếu</span
+                >
+              </div>
               <a
                 href="https://www.booking.com/hotel/vn/othuys-house-in-hue.vi.html?aid=2311236&label=vi-vn-booking-desktop-ztDRHDT0cyr%2Allk1cdAHaQS652796014482%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-65526620%3Alp1028580%3Ali%3Adec%3Adm&sid=e220515663a696be081d0e43806b9e7f&all_sr_blocks=1551525805_428078536_4_2_0%2C1551525804_428078536_4_2_0%2C1551525806_428078536_3_2_0&checkin=2026-07-24&checkout=2026-07-26&dest_id=-3715887&dest_type=city&dist=0&group_adults=11&group_children=0&hapos=20&highlighted_blocks=1551525805_428078536_4_2_0%2C1551525804_428078536_4_2_0%2C1551525806_428078536_3_2_0&hpos=20&matching_block_id=1551525805_428078536_4_2_0&nflt=ht_id%3D222%3Bht_id%3D201%3Breview_score%3D90&no_rooms=1&req_adults=11&req_children=0&room1=A%2CA%2CA%2CA%2CA%2CA%2CA%2CA%2CA%2CA%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1551525805_428078536_4_2_0__113400000%2C1551525804_428078536_4_2_0__120960000%2C1551525806_428078536_3_2_0__98280000&srepoch=1781538324&srpvid=9fc26e6181d2004b&type=total&ucfs=1&"
                 target="_blank"
@@ -315,7 +388,7 @@
           </div>
 
           <!-- Homestay 1 -->
-          <div class="homestay-card">
+          <div class="homestay-card" data-slug="thuong-apartment-1">
             <img
               src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/725164598.jpg?k=8f2b54dbcc5903a4104e34f144096f1093f9af89a566a366dcc93fda8fd2085c&o="
               alt="Thuong apartment 1"
@@ -346,6 +419,18 @@
                   ><i class="ri-building-line"></i> Tiện nghi apartment</span
                 >
               </div>
+              <div class="homestay-vote">
+                <button
+                  type="button"
+                  class="btn-secondary homestay-vote-btn"
+                  data-slug="thuong-apartment-1"
+                >
+                  <i class="ri-thumb-up-line"></i> Bình chọn
+                </button>
+                <span class="homestay-vote-count" data-slug="thuong-apartment-1"
+                  >0 phiếu</span
+                >
+              </div>
               <a
                 href="https://www.booking.com/hotel/vn/thuong-apartment-1.vi.html?aid=318615&label=New_English_EN_VI_27027142225-H8e7AwH0Qvg02qi5WZOlwwS637942138799%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atidsa-199489749865%3Alp1028580%3Ali%3Adec%3Adm%3Aag27027142225%3Acmp400679185&sid=98f33d23cb40889a45691e8738ef2dd0&all_sr_blocks=1468906902_418216765_6_0_0%2C1468906901_418216765_5_0_0&checkin=2026-07-24&checkout=2026-07-26&dest_id=-3730935&dest_type=city&dist=0&group_adults=11&group_children=0&hapos=5&highlighted_blocks=1468906902_418216765_6_0_0%2C1468906901_418216765_5_0_0&hpos=5&matching_block_id=1468906902_418216765_6_0_0&no_rooms=2&req_adults=11&req_children=0&room1=A%2CA%2CA%2CA%2CA&room2=A%2CA%2CA%2CA%2CA%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1468906902_418216765_6_0_0__264480000%2C1468906901_418216765_5_0_0__242440000&srepoch=1781411093&srpvid=b3c91e6b624401c6&type=total&ucfs=1&"
                 target="_blank"
@@ -364,7 +449,7 @@
           </div>
 
           <!-- Homestay 2 -->
-          <div class="homestay-card">
+          <div class="homestay-card" data-slug="thuong-apartment">
             <img
               src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/632018193.jpg?k=6f6d3d55887c2e8a8765393094bec71de1cdeba0619ae3e98a5d9ca6f9ca126a&o="
               alt="Thuong Apartment"
@@ -395,6 +480,18 @@
                   ><i class="ri-community-line"></i> Căn hộ dịch vụ</span
                 >
               </div>
+              <div class="homestay-vote">
+                <button
+                  type="button"
+                  class="btn-secondary homestay-vote-btn"
+                  data-slug="thuong-apartment"
+                >
+                  <i class="ri-thumb-up-line"></i> Bình chọn
+                </button>
+                <span class="homestay-vote-count" data-slug="thuong-apartment"
+                  >0 phiếu</span
+                >
+              </div>
               <a
                 href="https://www.booking.com/hotel/vn/em-apartment-thanh-pho-hue.vi.html?aid=318615&label=New_English_EN_VI_27027142225-H8e7AwH0Qvg02qi5WZOlwwS637942138799%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atidsa-199489749865%3Alp1028580%3Ali%3Adec%3Adm%3Aag27027142225%3Acmp400679185&sid=98f33d23cb40889a45691e8738ef2dd0&all_sr_blocks=1323065419_406946098_6_0_0_900572%2C1323065405_406946098_5_0_0_900572&checkin=2026-07-24&checkout=2026-07-26&dest_id=-3730935&dest_type=city&dist=0&group_adults=11&group_children=0&hapos=2&highlighted_blocks=1323065419_406946098_6_0_0_900572%2C1323065405_406946098_5_0_0_900572&hpos=2&matching_block_id=1323065419_406946098_6_0_0_900572&no_rooms=2&req_adults=11&req_children=0&room1=A%2CA%2CA%2CA%2CA&room2=A%2CA%2CA%2CA%2CA%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1323065419_406946098_6_0_0_900572_264480000%2C1323065405_406946098_5_0_0_900572_242440000&srepoch=1781411093&srpvid=b3c91e6b624401c6&type=total&ucfs=1&"
                 target="_blank"
@@ -413,7 +510,7 @@
           </div>
 
           <!-- Homestay 3 -->
-          <div class="homestay-card">
+          <div class="homestay-card" data-slug="nera-home">
             <img
               src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/604152681.jpg?k=f9ca209bb62aabce98e5e8b67ae009d6f2fa1b32cce51e81ae4955c5cf74a7e6&o="
               alt="Nera home"
@@ -440,6 +537,18 @@
                   ><i class="ri-shield-user-line"></i> An ninh 24/7</span
                 >
               </div>
+              <div class="homestay-vote">
+                <button
+                  type="button"
+                  class="btn-secondary homestay-vote-btn"
+                  data-slug="nera-home"
+                >
+                  <i class="ri-thumb-up-line"></i> Bình chọn
+                </button>
+                <span class="homestay-vote-count" data-slug="nera-home"
+                  >0 phiếu</span
+                >
+              </div>
               <a
                 href="https://www.booking.com/hotel/vn/nera-home-an-apartment-hue.vi.html?aid=318615&label=New_English_EN_VI_27027142225-H8e7AwH0Qvg02qi5WZOlwwS637942138799%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atidsa-199489749865%3Alp1028580%3Ali%3Adec%3Adm%3Aag27027142225%3Acmp400679185&sid=98f33d23cb40889a45691e8738ef2dd0&checkin=2026-07-24&checkout=2026-07-26&dest_id=-3730935&dest_type=city&dist=0&group_adults=11&group_children=0&hapos=1&hpos=1&no_rooms=2&req_adults=11&req_children=0&room1=A%2CA%2CA%2CA%2CA&room2=A%2CA%2CA%2CA%2CA%2CA&sb_price_type=total&soh=1&sr_order=popularity&srepoch=1781410783&srpvid=b3c91e6b624401c6&type=total&ucfs=1&#no_availability_msg"
                 target="_blank"
@@ -460,6 +569,7 @@
           <!-- Homestay 4 -->
           <div
             class="homestay-card"
+            data-slug="co-do-homestay"
             style="border: 1px solid var(--sunset-gold)"
           >
             <img
@@ -489,6 +599,18 @@
                   ><i class="ri-phone-line"></i> Đặt qua Zalo</span
                 >
               </div>
+              <div class="homestay-vote">
+                <button
+                  type="button"
+                  class="btn-secondary homestay-vote-btn"
+                  data-slug="co-do-homestay"
+                >
+                  <i class="ri-thumb-up-line"></i> Bình chọn
+                </button>
+                <span class="homestay-vote-count" data-slug="co-do-homestay"
+                  >0 phiếu</span
+                >
+              </div>
               <a
                 href="https://www.booking.com/hotel/vn/co-do-homestay-thanh-pho-hue2.vi.html?aid=318615&label=New_English_EN_VI_27027142225-H8e7AwH0Qvg02qi5WZOlwwS637942138799%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atidsa-199489749865%3Alp1028580%3Ali%3Adec%3Adm%3Aag27027142225%3Acmp400679185&sid=98f33d23cb40889a45691e8738ef2dd0&all_sr_blocks=1449299101_416309330_6_0_0%2C1449299101_416309330_6_0_0&checkin=2026-07-24&checkout=2026-07-26&dest_id=-3730935&dest_type=city&dist=0&group_adults=11&group_children=0&hapos=3&highlighted_blocks=1449299101_416309330_6_0_0%2C1449299101_416309330_6_0_0&hpos=3&matching_block_id=1449299101_416309330_6_0_0&no_rooms=2&req_adults=11&req_children=0&room1=A%2CA%2CA%2CA%2CA&room2=A%2CA%2CA%2CA%2CA%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1449299101_416309330_6_0_0__200000000%2C1449299101_416309330_6_0_0__200000000&srepoch=1781410783&srpvid=b3c91e6b624401c6&type=total&ucfs=1&"
                 target="_blank"
@@ -507,7 +629,7 @@
           </div>
 
           <!-- Homestay 5 -->
-          <div class="homestay-card">
+          <div class="homestay-card" data-slug="hien-apartment">
             <img
               src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/873759857.jpg?k=230999644739071184e0ad55701f5f90411fe483ae35b3ba0d34372f70c2efc1&o="
               alt="Hien apartment"
@@ -533,6 +655,18 @@
                 >
                 <span class="homestay-tag"
                   ><i class="ri-check-line"></i> Sạch sẽ chu đáo</span
+                >
+              </div>
+              <div class="homestay-vote">
+                <button
+                  type="button"
+                  class="btn-secondary homestay-vote-btn"
+                  data-slug="hien-apartment"
+                >
+                  <i class="ri-thumb-up-line"></i> Bình chọn
+                </button>
+                <span class="homestay-vote-count" data-slug="hien-apartment"
+                  >0 phiếu</span
                 >
               </div>
               <a
@@ -1874,6 +2008,44 @@
 
     <!-- JavaScript Interactive Scripts -->
     <script>
+      const API_BASE = (() => {
+        const params = new URLSearchParams(window.location.search);
+        const fromQuery = params.get("apiBase");
+        if (fromQuery) {
+          localStorage.setItem("hueApiBase", fromQuery);
+          return fromQuery.replace(/\/$/, "");
+        }
+        const saved = localStorage.getItem("hueApiBase");
+        if (saved) return saved.replace(/\/$/, "");
+
+        // Trang chạy trên Next.js (npm run dev) → gọi API cùng origin
+        if (window.location.port === "3000") return "";
+
+        // Live Server (5500), file://, hoặc host khác → API ở Next.js
+        return "https://badminton-club-wine.vercel.app";
+      })();
+
+      async function hueApi(path, options = {}) {
+        const response = await fetch(`${API_BASE}${path}`, {
+          headers: { "Content-Type": "application/json" },
+          ...options,
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          throw new Error(data.error || "Yêu cầu thất bại");
+        }
+        return data;
+      }
+
+      function escapeHtml(value) {
+        return String(value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#39;");
+      }
+
       // 1. Sticky Navigation Header
       window.addEventListener("scroll", () => {
         const header = document.getElementById("header");
@@ -2106,30 +2278,122 @@
         });
       });
 
-      // 7. Participant Management Logic
-      const initialMembers = [
-        { id: "m1", name: "Phạm Duy Linh", role: "truongdoan", ready: true },
-        { id: "m2", name: "Lê Phương Thảo", role: "thuquy", ready: true },
-        { id: "m3", name: "Nguyễn Quỳnh Chi", role: "phonhay", ready: true },
-        { id: "m4", name: "Đỗ Thị Ngọc Anh", role: "thanhvien", ready: true },
-        { id: "m5", name: "Nguyễn Quang Nhật", role: "haucan", ready: true },
-        { id: "m6", name: "Vũ Lê Cử", role: "haucan", ready: true },
-        { id: "m7", name: "Trịnh Ngọc Khuê", role: "thanhvien", ready: true },
-        { id: "m8", name: "Khánh Loan", role: "thanhvien", ready: true },
-        { id: "m9", name: "Thanh Nhàn", role: "thanhvien", ready: false },
-        {
-          id: "m10",
-          name: "Nguyễn Hoàng Bảo Ngân",
-          role: "thanhvien",
-          ready: false,
-        },
-        { id: "m11", name: "Phan Trà My", role: "thanhvien", ready: false },
-        { id: "m12", name: "HT Đạt", role: "thanhvien", ready: false },
-        { id: "m13", name: "Người nhà Chi Ng", role: "thanhvien", ready: true },
-        { id: "m14", name: "Phạm Kim Chi", role: "thanhvien", ready: true },
-        { id: "m15", name: "Hoàng Yến", role: "thanhvien", ready: true },
-      ];
+      // 7. Homestay Voting Logic
+      let homestayVoteData = { homestays: [], myVotes: [] };
 
+      function getSelectedVoterName() {
+        return document.getElementById("voterNameSelect").value.trim();
+      }
+
+      function updateVoterSelectOptions() {
+        const select = document.getElementById("voterNameSelect");
+        const saved = localStorage.getItem("hueVoterName") || "";
+        select.innerHTML =
+          '<option value="">-- Chọn thành viên --</option>' +
+          members
+            .map(
+              (member) =>
+                `<option value="${escapeHtml(member.name)}">${escapeHtml(member.name)}</option>`,
+            )
+            .join("");
+        if (saved && members.some((member) => member.name === saved)) {
+          select.value = saved;
+        }
+      }
+
+      function renderHomestayVotes() {
+        const counts = new Map(
+          homestayVoteData.homestays.map((item) => [item.slug, item]),
+        );
+        let leadingSlug = null;
+        let leadingCount = -1;
+
+        homestayVoteData.homestays.forEach((item) => {
+          if (item.vote_count > leadingCount) {
+            leadingCount = item.vote_count;
+            leadingSlug = item.slug;
+          }
+        });
+
+        document.querySelectorAll(".homestay-vote-count").forEach((el) => {
+          const slug = el.getAttribute("data-slug");
+          const item = counts.get(slug);
+          const count = item?.vote_count ?? 0;
+          el.textContent = `${count} phiếu`;
+        });
+
+        document.querySelectorAll(".homestay-card[data-slug]").forEach((card) => {
+          const slug = card.getAttribute("data-slug");
+          const voted = homestayVoteData.myVotes.includes(slug);
+          card.classList.toggle("is-leading", slug === leadingSlug && leadingCount > 0);
+          const btn = card.querySelector(".homestay-vote-btn");
+          if (btn) {
+            btn.classList.toggle("is-voted", voted);
+            btn.innerHTML = voted
+              ? '<i class="ri-thumb-up-fill"></i> Đã bình chọn'
+              : '<i class="ri-thumb-up-line"></i> Bình chọn';
+          }
+        });
+
+        const myVoteLabel = document.getElementById("myVoteLabel");
+        if (homestayVoteData.myVotes.length > 0) {
+          const titles = homestayVoteData.myVotes
+            .map((slug) => counts.get(slug)?.title)
+            .filter(Boolean);
+          myVoteLabel.textContent =
+            titles.length > 0 ? `Bạn đã chọn: ${titles.join(", ")}` : "";
+        } else {
+          myVoteLabel.textContent = "";
+        }
+      }
+
+      async function loadHomestayVotes() {
+        const voterName = getSelectedVoterName();
+        const query = voterName
+          ? `?voterName=${encodeURIComponent(voterName)}`
+          : "";
+        homestayVoteData = await hueApi(`/api/hue/homestays${query}`);
+        renderHomestayVotes();
+      }
+
+      async function voteHomestay(slug) {
+        const voterName = getSelectedVoterName();
+        if (!voterName) {
+          alert("Vui lòng chọn tên thành viên trước khi bình chọn!");
+          return;
+        }
+
+        localStorage.setItem("hueVoterName", voterName);
+        const result = await hueApi("/api/hue/homestays/vote", {
+          method: "POST",
+          body: JSON.stringify({ voterName, homestaySlug: slug }),
+        });
+        await loadHomestayVotes();
+        triggerToast(
+          result.voted
+            ? "Đã thêm bình chọn homestay!"
+            : "Đã bỏ bình chọn homestay!",
+        );
+      }
+
+      document.querySelectorAll(".homestay-vote-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          voteHomestay(btn.getAttribute("data-slug")).catch((error) => {
+            alert(error.message);
+          });
+        });
+      });
+
+      document
+        .getElementById("voterNameSelect")
+        .addEventListener("change", (event) => {
+          localStorage.setItem("hueVoterName", event.target.value);
+          loadHomestayVotes().catch((error) => {
+            alert(error.message);
+          });
+        });
+
+      // 8. Participant Management Logic
       let members = [];
 
       function renderMembers() {
@@ -2144,15 +2408,15 @@
           card.className = "member-card";
           card.innerHTML = `
                     <div class="member-info">
-                        <div class="member-name">${member.name}</div>
+                        <div class="member-name">${escapeHtml(member.name)}</div>
                         <span class="member-role role-${member.role}">${getRoleName(member.role)}</span>
                     </div>
                     <div class="member-actions">
-                        <button class="member-status ${member.ready ? "status-ready" : "status-preparing"}" onclick="toggleMemberReady('${member.id}')">
+                        <button class="member-status ${member.ready ? "status-ready" : "status-preparing"}" data-action="toggle" data-id="${member.id}">
                             <i class="${member.ready ? "ri-checkbox-circle-fill" : "ri-checkbox-blank-circle-line"}"></i>
                             ${member.ready ? "Sẵn sàng" : "Chuẩn bị"}
                         </button>
-                        <button class="btn-delete" onclick="deleteMember('${member.id}')">
+                        <button class="btn-delete" data-action="delete" data-id="${member.id}">
                             <i class="ri-delete-bin-line"></i>
                         </button>
                     </div>
@@ -2162,6 +2426,8 @@
 
         document.getElementById("memberStats").innerText =
           `Tổng số: ${members.length} | Đã sẵn sàng: ${readyCount}`;
+
+        updateVoterSelectOptions();
       }
 
       function getRoleName(role) {
@@ -2175,28 +2441,43 @@
         return roles[role] || "Thành Viên";
       }
 
-      window.toggleMemberReady = function (id) {
-        const member = members.find((m) => m.id === id);
-        if (member) {
-          member.ready = !member.ready;
-          saveMembersState();
-          renderMembers();
-          triggerToast(`Đã cập nhật trạng thái của ${member.name}!`);
-        }
-      };
+      document
+        .getElementById("membersContainer")
+        .addEventListener("click", async (event) => {
+          const button = event.target.closest("button[data-action]");
+          if (!button) return;
 
-      window.deleteMember = function (id) {
-        const memberIndex = members.findIndex((m) => m.id === id);
-        if (memberIndex > -1) {
-          const name = members[memberIndex].name;
-          members.splice(memberIndex, 1);
-          saveMembersState();
-          renderMembers();
-          triggerToast(`Đã xóa thành viên ${name}!`);
-        }
-      };
+          const id = button.getAttribute("data-id");
+          const action = button.getAttribute("data-action");
 
-      document.getElementById("addMemberBtn").addEventListener("click", () => {
+          try {
+            if (action === "toggle") {
+              const member = members.find((item) => item.id === id);
+              if (!member) return;
+              const updated = await hueApi(`/api/hue/members/${id}`, {
+                method: "PATCH",
+                body: JSON.stringify({ ready: !member.ready }),
+              });
+              member.ready = updated.member.ready;
+              renderMembers();
+              triggerToast(`Đã cập nhật trạng thái của ${member.name}!`);
+            }
+
+            if (action === "delete") {
+              const member = members.find((item) => item.id === id);
+              if (!member) return;
+              await hueApi(`/api/hue/members/${id}`, { method: "DELETE" });
+              members = members.filter((item) => item.id !== id);
+              renderMembers();
+              await loadHomestayVotes();
+              triggerToast(`Đã xóa thành viên ${member.name}!`);
+            }
+          } catch (error) {
+            alert(error.message);
+          }
+        });
+
+      document.getElementById("addMemberBtn").addEventListener("click", async () => {
         const nameInput = document.getElementById("memberNameInput");
         const roleSelect = document.getElementById("memberRoleSelect");
 
@@ -2206,35 +2487,31 @@
           return;
         }
 
-        const newMember = {
-          id: "m" + Date.now(),
-          name: name,
-          role: roleSelect.value,
-          ready: false,
-        };
-
-        members.push(newMember);
-        nameInput.value = "";
-        saveMembersState();
-        renderMembers();
-        triggerToast(`Đã thêm ${name} vào danh sách!`);
+        try {
+          const result = await hueApi("/api/hue/members", {
+            method: "POST",
+            body: JSON.stringify({
+              name,
+              role: roleSelect.value,
+              ready: false,
+            }),
+          });
+          members.push(result.member);
+          nameInput.value = "";
+          renderMembers();
+          triggerToast(`Đã thêm ${name} vào danh sách!`);
+        } catch (error) {
+          alert(error.message);
+        }
       });
 
-      function saveMembersState() {
-        localStorage.setItem("hueMembersState", JSON.stringify(members));
-      }
-
-      function loadMembersState() {
-        const stateStr = localStorage.getItem("hueMembersState");
-        if (stateStr) {
-          members = JSON.parse(stateStr);
-        } else {
-          members = [...initialMembers];
-        }
+      async function loadMembersState() {
+        const result = await hueApi("/api/hue/members");
+        members = result.members;
         renderMembers();
       }
 
-      // 8. Dynamic Budget Calculation Logic (Updated for Go-Back split and Party checkboxes)
+      // 9. Dynamic Budget Calculation Logic (Updated for Go-Back split and Party checkboxes)
       window.calculateBudget = function () {
         const transportGo = parseInt(
           document.getElementById("calcTransportGo").value,
@@ -2288,10 +2565,18 @@
       };
 
       // Initialize state on page load
-      window.addEventListener("DOMContentLoaded", () => {
+      window.addEventListener("DOMContentLoaded", async () => {
         loadChecklistState();
-        loadMembersState();
         calculateBudget();
+        try {
+          await loadMembersState();
+          await loadHomestayVotes();
+        } catch (error) {
+          console.error(error);
+          alert(
+            "Không tải được dữ liệu từ API. Hãy chạy `npm run dev` và áp dụng migration Supabase trước.",
+          );
+        }
       });
     </script>
   </body>
