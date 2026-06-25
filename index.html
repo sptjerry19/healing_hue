@@ -17,165 +17,19 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <style>
-      /* CSS addition for budget badge & calculator */
-      .timeline-cost {
-        display: inline-block;
-        font-size: 11px;
-        font-weight: 700;
-        color: var(--bright-amber);
-        background: rgba(231, 111, 81, 0.1);
-        padding: 4px 10px;
-        border-radius: 50px;
-        margin-left: 8px;
-        border: 1px solid rgba(231, 111, 81, 0.2);
-      }
-
-      .budget-section {
-        padding: 80px 0;
-        background: rgba(28, 10, 33, 0.2);
-      }
-
-      .budget-grid {
-        display: grid;
-        /* grid-template-columns: 1fr 1fr; */
-        gap: 40px;
-        grid-auto-flow: row;
-      }
-
-      .budget-calculator-card {
-        background: var(--glass-card);
-        border: 1px solid var(--glass-border);
-        border-radius: 24px;
-        padding: 40px;
-        box-shadow: var(--glow-shadow);
-      }
-
-      .calc-option-group {
-        margin-bottom: 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        padding-bottom: 15px;
-      }
-
-      .calc-option-group:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
-      }
-
-      .calc-label {
-        font-size: 15px;
-        font-weight: 700;
-        color: var(--pure-white);
-        margin-bottom: 10px;
-        display: block;
-      }
-
-      .homestay-vote {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-        margin-bottom: 12px;
-      }
-
-      .homestay-vote-btn {
-        padding: 8px 14px;
-        font-size: 12px;
-        flex: 1;
-      }
-
-      .homestay-vote-btn.is-voted {
-        border-color: var(--sunset-gold);
-        color: var(--sunset-gold);
-      }
-
-      .homestay-vote-count {
-        font-size: 12px;
-        opacity: 0.9;
-        white-space: nowrap;
-      }
-
-      .homestay-card.is-leading {
-        border-color: var(--sunset-gold);
-        box-shadow: 0 0 24px rgba(231, 111, 81, 0.15);
-      }
-
-      .calc-select {
-        width: 100%;
-        background: #25102d;
-        border: 1px solid var(--glass-border);
-        padding: 12px 18px;
-        border-radius: 50px;
-        color: var(--pure-white);
-        font-family: var(--font-body);
-        font-size: 14px;
-        outline: none;
-        cursor: pointer;
-        transition: var(--transition-smooth);
-      }
-
-      .calc-select:focus {
-        border-color: var(--sunset-gold);
-      }
-
-      .calc-checkbox-list {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .calc-checkbox-label {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 14px;
-        cursor: pointer;
-      }
-
-      .calc-checkbox-label input {
-        cursor: pointer;
-      }
-
-      .budget-summary-box {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        background: linear-gradient(
-          135deg,
-          rgba(59, 22, 66, 0.6),
-          rgba(28, 10, 33, 0.8)
-        );
-        border: 1px solid var(--gold-border);
-        border-radius: 24px;
-        padding: 40px;
-        box-shadow: var(--glow-shadow);
-      }
-
-      .summary-total {
-        font-family: var(--font-heading);
-        font-size: 48px;
-        color: var(--sunset-gold);
-        font-weight: 700;
-        margin: 15px 0;
-        text-shadow: 0 4px 15px rgba(212, 163, 115, 0.3);
-      }
-
-      .summary-desc {
-        font-size: 14px;
-        opacity: 0.8;
-        line-height: 1.6;
-      }
-    </style>
   </head>
   <body>
+    <canvas id="webgl-bg" aria-hidden="true"></canvas>
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+    <div class="grain-overlay" aria-hidden="true"></div>
+    <div id="cursor-glow" aria-hidden="true"></div>
     <!-- Header / Navigation -->
     <header id="header">
       <div class="container nav-container">
-        <a href="#" class="logo">
+        <a href="#welcome" class="logo">
           <i class="ri-ancient-gate-line"></i> ĐảngLôngLá<span>Hue</span>
         </a>
-        <ul class="nav-links">
+        <ul class="nav-links" id="navLinks">
           <li><a href="#welcome">Giới thiệu</a></li>
           <li><a href="#weather">Thời tiết</a></li>
           <li><a href="#homestay">Homestay</a></li>
@@ -186,34 +40,85 @@
           <li><a href="#participants">Thành viên</a></li>
           <li><a href="#checklist">Hành lý</a></li>
         </ul>
+        <button
+          type="button"
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Mở menu điều hướng"
+          aria-expanded="false"
+        >
+          <i class="ri-menu-line"></i>
+        </button>
       </div>
     </header>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Menu di động">
+      <a href="#welcome">Giới thiệu</a>
+      <a href="#weather">Thời tiết</a>
+      <a href="#homestay">Homestay</a>
+      <a href="#budget">Chi phí</a>
+      <a href="#map">Bản đồ</a>
+      <a href="#itinerary">Lịch trình</a>
+      <a href="#food">Ẩm thực</a>
+      <a href="#participants">Thành viên</a>
+      <a href="#checklist">Hành lý</a>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="welcome">
+      <div class="hero-orb hero-orb--1 parallax-layer" data-speed="0.15"></div>
+      <div class="hero-orb hero-orb--2 parallax-layer" data-speed="0.25"></div>
+      <div class="hero-orb hero-orb--3 parallax-layer" data-speed="0.1"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+
       <div class="hero-content">
-        <span class="hero-subtitle">Đảng Lông Lá di cư vô Huế 🌸</span>
+        <div class="hero-badge reveal-child">
+          <span class="hero-badge-dot"></span>
+          Đảng Lông Lá di cư vô Huế
+        </div>
         <h1 class="hero-title">
-          Hành Trình Oanh Tạc Cố Đô<br /><span>23/07 - 26/07</span>
+          <span class="line gradient-text">Hành Trình</span>
+          <span class="line gradient-text">Oanh Tạc Cố Đô</span>
+          <span class="line hero-date">23/07 – 26/07</span>
         </h1>
-        <p class="hero-desc">
-          Đi xe giường nằm tối 23/07, về máy bay ngày 26/07.
+        <p class="hero-desc reveal-child">
+          Đi xe giường nằm tối 23/07, về máy bay ngày 26/07. Lịch trình, homestay,
+          chi phí và checklist — tất cả trong một bảng điều khiển cho cả đoàn.
         </p>
-        <a href="#itinerary" class="btn-primary">
-          Xem Lịch Trình Chi Tiết <i class="ri-arrow-right-line"></i>
-        </a> <br/>
-        <a href="https://badminton-club-wine.vercel.app/" class="btn-primary">
-          Var nhau đê <i class="ri-arrow-right-line"></i>
-        </a>
+        <div class="hero-actions reveal-child">
+          <a href="#itinerary" class="btn-primary magnetic-btn">
+            Xem lịch trình <i class="ri-arrow-right-line"></i>
+          </a>
+          <a
+            href="https://badminton-club-wine.vercel.app/"
+            class="btn-secondary magnetic-btn"
+          >
+            Var nhau đê <i class="ri-external-link-line"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual parallax-layer" data-speed="0.2">
+        <div class="hero-image-wrap tilt-card">
+          <img src="assets/hero_hue.png" alt="Huế cố đô" />
+          <div class="hero-stat-float hero-stat-float--1 glass-chip">
+            <div class="val">4N3Đ</div>
+            <div class="lbl">Hành trình</div>
+          </div>
+          <div class="hero-stat-float hero-stat-float--2 glass-chip">
+            <div class="val">10+</div>
+            <div class="lbl">Thành viên</div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Weather & Tips Section -->
-    <section class="info-section" id="weather">
+    <section class="info-section reveal" id="weather">
+      <div class="section-glow" aria-hidden="true"></div>
       <div class="container grid-2">
-        <div class="info-text">
+        <div class="info-text section-header reveal-child">
           <span class="section-tag">Cẩm nang mùa hè</span>
-          <h2 class="section-title">Thời Tiết Huế 23/07 - 26/07</h2>
+          <h2 class="section-title">Thời Tiết Huế 23/07 – 26/07</h2>
           <p class="section-desc">
             Huế cuối tháng 7 đang là mùa nắng gắt lý tưởng để chụp ảnh trời xanh
             ngắt. Với nhóm đông 10 người, cần lưu ý uống đủ nước và di chuyển
@@ -221,12 +126,12 @@
             điểm.
           </p>
           <div class="weather-stats">
-            <div class="stat-card">
+            <div class="stat-card tilt-card reveal-child">
               <i class="ri-sun-line stat-icon"></i>
               <div class="stat-val">28 - 37°C</div>
               <div class="stat-label">Nhiệt độ trung bình</div>
             </div>
-            <div class="stat-card">
+            <div class="stat-card tilt-card reveal-child">
               <i class="ri-temp-hot-line stat-icon"></i>
               <div class="stat-val">Khuyên dùng</div>
               <div class="stat-label">Mang ô, mũ rộng vành</div>
@@ -234,30 +139,19 @@
           </div>
         </div>
 
-        <div class="glass-panel">
-          <h3
-            style="
-              font-family: var(--font-heading);
-              font-size: 24px;
-              margin-bottom: 15px;
-              color: var(--pure-white);
-            "
-          >
-            <i class="ri-lightbulb-line" style="color: var(--sunset-gold)"></i>
+        <div class="glass-panel reveal-child">
+          <h3 class="panel-title">
+            <i class="ri-lightbulb-line"></i>
             Khung Giờ Hoạt Động Gợi Ý
           </h3>
-          <p style="font-size: 14px; opacity: 0.8; margin-bottom: 15px">
+          <p class="panel-hint">
             Kéo thanh trượt để xem mẹo sắp xếp hoạt động theo thời gian trong
-            ngày:
+            ngày.
           </p>
 
           <div class="interactive-slider-box">
             <div class="slider-label">
-              <span
-                id="slider-time-text"
-                style="font-weight: 700; color: var(--sunset-gold)"
-                >08:00 Sáng</span
-              >
+              <span id="slider-time-text">08:00 Sáng</span>
               <span>Thời tiết: <span id="slider-temp-text">Dịu mát</span></span>
             </div>
             <input
@@ -278,41 +172,21 @@
     </section>
 
     <!-- Homestay Recommendation Section -->
-    <section class="homestay-section" id="homestay">
+    <section class="homestay-section reveal" id="homestay">
+      <div class="section-glow" aria-hidden="true"></div>
       <div class="container">
-        <div style="text-align: center; margin-bottom: 40px">
-          <span class="section-tag">Nơi lưu trú tham khảo</span>
+        <div class="section-header centered reveal-child">
           <h2 class="section-title">Danh Sách Homestay</h2>
-          <p
-            style="
-              max-width: 600px;
-              margin: 0 auto;
-              opacity: 0.8;
-              font-size: 15px;
-            "
-          >
+          <p class="section-desc centered">
             Chi tiết các homestay được lựa chọn so sánh trong bảng tính, tính
             toán chi phí trung bình trên mỗi thành viên cho 2 đêm. Mỗi thành
             viên có thể bình chọn nhiều homestay yêu thích (bấm lại để bỏ chọn).
           </p>
         </div>
 
-        <div
-          class="glass-panel"
-          style="margin-bottom: 30px; padding: 20px; text-align: center"
-        >
-          <div
-            style="
-              display: flex;
-              flex-wrap: wrap;
-              gap: 12px;
-              align-items: center;
-              justify-content: center;
-            "
-          >
-            <label for="voterNameSelect" style="font-size: 14px; opacity: 0.9"
-              >Bình chọn với tên:</label
-            >
+        <div class="glass-panel vote-bar">
+          <div class="vote-bar-inner">
+            <label for="voterNameSelect">Bình chọn với tên</label>
             <select
               id="voterNameSelect"
               class="input-field select-field"
@@ -320,16 +194,13 @@
             >
               <option value="">-- Chọn thành viên --</option>
             </select>
-            <span
-              id="myVoteLabel"
-              style="font-size: 13px; color: var(--sunset-gold)"
-            ></span>
+            <span id="myVoteLabel"></span>
           </div>
         </div>
 
         <div class="homestay-grid">
             <!-- Homestay 6 -->
-          <div class="homestay-card" data-slug="othuys-house">
+          <div class="homestay-card tilt-card" data-slug="othuys-house">
             <img
               src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/847472946.jpg?k=e5c10052e0590a2c0e0d1e2173004422420587f29dfad9e2e3c07f9b1fbe0b62&o="
               alt="Hien apartment"
@@ -347,7 +218,7 @@
               <p class="homestay-desc">
                 Nơi đây còn có phòng tắm riêng với vòi xịt/chậu rửa vệ sinh ở tất cả các căn, cùng đồ vệ sinh cá nhân miễn phí, máy sấy tóc và dép đi trong phòng.
               </p>
-              <div class="homestay-tags" style="margin-bottom: 15px">
+              <div class="homestay-tags">
                 <span class="homestay-tag"
                   ><i class="ri-star-line"></i> 10⭐</span
                 >
@@ -359,10 +230,7 @@
                 >
               </div>
               <div class="homestay-vote">
-                <button
-                  type="button"
-                  class="btn-secondary homestay-vote-btn"
-                  data-slug="othuys-house"
+                <button type="button" class="btn-secondary magnetic-btn homestay-vote-btn" data-slug="othuys-house"
                 >
                   <i class="ri-thumb-up-line"></i> Bình chọn
                 </button>
@@ -374,13 +242,6 @@
                 href="https://www.booking.com/hotel/vn/othuys-house-in-hue.vi.html?aid=2311236&label=vi-vn-booking-desktop-ztDRHDT0cyr%2Allk1cdAHaQS652796014482%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-65526620%3Alp1028580%3Ali%3Adec%3Adm&sid=e220515663a696be081d0e43806b9e7f&all_sr_blocks=1551525805_428078536_4_2_0%2C1551525804_428078536_4_2_0%2C1551525806_428078536_3_2_0&checkin=2026-07-24&checkout=2026-07-26&dest_id=-3715887&dest_type=city&dist=0&group_adults=11&group_children=0&hapos=20&highlighted_blocks=1551525805_428078536_4_2_0%2C1551525804_428078536_4_2_0%2C1551525806_428078536_3_2_0&hpos=20&matching_block_id=1551525805_428078536_4_2_0&nflt=ht_id%3D222%3Bht_id%3D201%3Breview_score%3D90&no_rooms=1&req_adults=11&req_children=0&room1=A%2CA%2CA%2CA%2CA%2CA%2CA%2CA%2CA%2CA%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1551525805_428078536_4_2_0__113400000%2C1551525804_428078536_4_2_0__120960000%2C1551525806_428078536_3_2_0__98280000&srepoch=1781538324&srpvid=9fc26e6181d2004b&type=total&ucfs=1&"
                 target="_blank"
                 class="btn-primary"
-                style="
-                  padding: 10px 20px;
-                  font-size: 12px;
-                  margin-top: auto;
-                  text-align: center;
-                  justify-content: center;
-                "
               >
                 Đặt Phòng Trên Booking <i class="ri-external-link-line"></i>
               </a>
@@ -388,7 +249,7 @@
           </div>
 
           <!-- Homestay 1 -->
-          <div class="homestay-card" data-slug="thuong-apartment-1">
+          <div class="homestay-card tilt-card" data-slug="thuong-apartment-1">
             <img
               src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/725164598.jpg?k=8f2b54dbcc5903a4104e34f144096f1093f9af89a566a366dcc93fda8fd2085c&o="
               alt="Thuong apartment 1"
@@ -408,7 +269,7 @@
                 trang trí hiện đại, sạch sẽ và rất gần các quán bún bò Bà Gái ăn
                 sáng.
               </p>
-              <div class="homestay-tags" style="margin-bottom: 15px">
+              <div class="homestay-tags">
                 <span class="homestay-tag"
                   ><i class="ri-star-line"></i> 10⭐ </span
                 >
@@ -420,10 +281,7 @@
                 >
               </div>
               <div class="homestay-vote">
-                <button
-                  type="button"
-                  class="btn-secondary homestay-vote-btn"
-                  data-slug="thuong-apartment-1"
+                <button type="button" class="btn-secondary magnetic-btn homestay-vote-btn" data-slug="thuong-apartment-1"
                 >
                   <i class="ri-thumb-up-line"></i> Bình chọn
                 </button>
@@ -435,13 +293,6 @@
                 href="https://www.booking.com/hotel/vn/thuong-apartment-1.vi.html?aid=318615&label=New_English_EN_VI_27027142225-H8e7AwH0Qvg02qi5WZOlwwS637942138799%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atidsa-199489749865%3Alp1028580%3Ali%3Adec%3Adm%3Aag27027142225%3Acmp400679185&sid=98f33d23cb40889a45691e8738ef2dd0&all_sr_blocks=1468906902_418216765_6_0_0%2C1468906901_418216765_5_0_0&checkin=2026-07-24&checkout=2026-07-26&dest_id=-3730935&dest_type=city&dist=0&group_adults=11&group_children=0&hapos=5&highlighted_blocks=1468906902_418216765_6_0_0%2C1468906901_418216765_5_0_0&hpos=5&matching_block_id=1468906902_418216765_6_0_0&no_rooms=2&req_adults=11&req_children=0&room1=A%2CA%2CA%2CA%2CA&room2=A%2CA%2CA%2CA%2CA%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1468906902_418216765_6_0_0__264480000%2C1468906901_418216765_5_0_0__242440000&srepoch=1781411093&srpvid=b3c91e6b624401c6&type=total&ucfs=1&"
                 target="_blank"
                 class="btn-primary"
-                style="
-                  padding: 10px 20px;
-                  font-size: 12px;
-                  margin-top: auto;
-                  text-align: center;
-                  justify-content: center;
-                "
               >
                 Đặt Phòng Qua Booking <i class="ri-external-link-line"></i>
               </a>
@@ -449,7 +300,7 @@
           </div>
 
           <!-- Homestay 2 -->
-          <div class="homestay-card" data-slug="thuong-apartment">
+          <div class="homestay-card tilt-card" data-slug="thuong-apartment">
             <img
               src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/632018193.jpg?k=6f6d3d55887c2e8a8765393094bec71de1cdeba0619ae3e98a5d9ca6f9ca126a&o="
               alt="Thuong Apartment"
@@ -469,7 +320,7 @@
                 hoạt tiện lợi cho nhóm 10 người cùng uống trà hay ăn bánh ép Huế
                 nói chuyện buổi tối.
               </p>
-              <div class="homestay-tags" style="margin-bottom: 15px">
+              <div class="homestay-tags">
                 <span class="homestay-tag"
                   ><i class="ri-star-line"></i> 9.6⭐</span
                 >
@@ -481,10 +332,7 @@
                 >
               </div>
               <div class="homestay-vote">
-                <button
-                  type="button"
-                  class="btn-secondary homestay-vote-btn"
-                  data-slug="thuong-apartment"
+                <button type="button" class="btn-secondary magnetic-btn homestay-vote-btn" data-slug="thuong-apartment"
                 >
                   <i class="ri-thumb-up-line"></i> Bình chọn
                 </button>
@@ -496,13 +344,6 @@
                 href="https://www.booking.com/hotel/vn/em-apartment-thanh-pho-hue.vi.html?aid=318615&label=New_English_EN_VI_27027142225-H8e7AwH0Qvg02qi5WZOlwwS637942138799%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atidsa-199489749865%3Alp1028580%3Ali%3Adec%3Adm%3Aag27027142225%3Acmp400679185&sid=98f33d23cb40889a45691e8738ef2dd0&all_sr_blocks=1323065419_406946098_6_0_0_900572%2C1323065405_406946098_5_0_0_900572&checkin=2026-07-24&checkout=2026-07-26&dest_id=-3730935&dest_type=city&dist=0&group_adults=11&group_children=0&hapos=2&highlighted_blocks=1323065419_406946098_6_0_0_900572%2C1323065405_406946098_5_0_0_900572&hpos=2&matching_block_id=1323065419_406946098_6_0_0_900572&no_rooms=2&req_adults=11&req_children=0&room1=A%2CA%2CA%2CA%2CA&room2=A%2CA%2CA%2CA%2CA%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1323065419_406946098_6_0_0_900572_264480000%2C1323065405_406946098_5_0_0_900572_242440000&srepoch=1781411093&srpvid=b3c91e6b624401c6&type=total&ucfs=1&"
                 target="_blank"
                 class="btn-primary"
-                style="
-                  padding: 10px 20px;
-                  font-size: 12px;
-                  margin-top: auto;
-                  text-align: center;
-                  justify-content: center;
-                "
               >
                 Đặt Phòng Qua Booking <i class="ri-external-link-line"></i>
               </a>
@@ -510,7 +351,7 @@
           </div>
 
           <!-- Homestay 3 -->
-          <div class="homestay-card" data-slug="nera-home">
+          <div class="homestay-card tilt-card" data-slug="nera-home">
             <img
               src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/604152681.jpg?k=f9ca209bb62aabce98e5e8b67ae009d6f2fa1b32cce51e81ae4955c5cf74a7e6&o="
               alt="Nera home"
@@ -529,7 +370,7 @@
                 Căn hộ thiết kế hiện đại, tọa lạc trong khu chung cư cao cấp. Vị
                 trí an ninh tốt, gần trung tâm và đầy đủ đồ dùng làm bếp cơ bản.
               </p>
-              <div class="homestay-tags" style="margin-bottom: 15px">
+              <div class="homestay-tags">
                 <span class="homestay-tag"
                   ><i class="ri-star-line"></i> 9.8⭐</span
                 >
@@ -538,10 +379,7 @@
                 >
               </div>
               <div class="homestay-vote">
-                <button
-                  type="button"
-                  class="btn-secondary homestay-vote-btn"
-                  data-slug="nera-home"
+                <button type="button" class="btn-secondary magnetic-btn homestay-vote-btn" data-slug="nera-home"
                 >
                   <i class="ri-thumb-up-line"></i> Bình chọn
                 </button>
@@ -553,13 +391,6 @@
                 href="https://www.booking.com/hotel/vn/nera-home-an-apartment-hue.vi.html?aid=318615&label=New_English_EN_VI_27027142225-H8e7AwH0Qvg02qi5WZOlwwS637942138799%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atidsa-199489749865%3Alp1028580%3Ali%3Adec%3Adm%3Aag27027142225%3Acmp400679185&sid=98f33d23cb40889a45691e8738ef2dd0&checkin=2026-07-24&checkout=2026-07-26&dest_id=-3730935&dest_type=city&dist=0&group_adults=11&group_children=0&hapos=1&hpos=1&no_rooms=2&req_adults=11&req_children=0&room1=A%2CA%2CA%2CA%2CA&room2=A%2CA%2CA%2CA%2CA%2CA&sb_price_type=total&soh=1&sr_order=popularity&srepoch=1781410783&srpvid=b3c91e6b624401c6&type=total&ucfs=1&#no_availability_msg"
                 target="_blank"
                 class="btn-primary"
-                style="
-                  padding: 10px 20px;
-                  font-size: 12px;
-                  margin-top: auto;
-                  text-align: center;
-                  justify-content: center;
-                "
               >
                 Đặt Phòng Trên Booking <i class="ri-external-link-line"></i>
               </a>
@@ -567,11 +398,7 @@
           </div>
 
           <!-- Homestay 4 -->
-          <div
-            class="homestay-card"
-            data-slug="co-do-homestay"
-            style="border: 1px solid var(--sunset-gold)"
-          >
+          <div class="homestay-card tilt-card" data-slug="co-do-homestay">
             <img
               src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/706462114.jpg?k=44981fae8ea54e3adc8a7c9b298c5be5ce26b86d2a5f8126f9318c7cb5e48de6&o="
               alt="Uchi Nera Home"
@@ -591,8 +418,8 @@
                 xắn, thiết kế sang trọng bắt mắt và đầy đủ góc sống ảo cho cả
                 đoàn. Chủ yếu liên hệ book qua Zalo.
               </p>
-              <div class="homestay-tags" style="margin-bottom: 15px">
-                <span class="homestay-tag" style="color: var(--sunset-gold)"
+              <div class="homestay-tags">
+                <span class="homestay-tag homestay-tag-featured"
                   ><i class="ri-sparkles-line"></i> Rất đẹp & Mới</span
                 >
                 <span class="homestay-tag"
@@ -600,10 +427,7 @@
                 >
               </div>
               <div class="homestay-vote">
-                <button
-                  type="button"
-                  class="btn-secondary homestay-vote-btn"
-                  data-slug="co-do-homestay"
+                <button type="button" class="btn-secondary magnetic-btn homestay-vote-btn" data-slug="co-do-homestay"
                 >
                   <i class="ri-thumb-up-line"></i> Bình chọn
                 </button>
@@ -615,13 +439,6 @@
                 href="https://www.booking.com/hotel/vn/co-do-homestay-thanh-pho-hue2.vi.html?aid=318615&label=New_English_EN_VI_27027142225-H8e7AwH0Qvg02qi5WZOlwwS637942138799%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atidsa-199489749865%3Alp1028580%3Ali%3Adec%3Adm%3Aag27027142225%3Acmp400679185&sid=98f33d23cb40889a45691e8738ef2dd0&all_sr_blocks=1449299101_416309330_6_0_0%2C1449299101_416309330_6_0_0&checkin=2026-07-24&checkout=2026-07-26&dest_id=-3730935&dest_type=city&dist=0&group_adults=11&group_children=0&hapos=3&highlighted_blocks=1449299101_416309330_6_0_0%2C1449299101_416309330_6_0_0&hpos=3&matching_block_id=1449299101_416309330_6_0_0&no_rooms=2&req_adults=11&req_children=0&room1=A%2CA%2CA%2CA%2CA&room2=A%2CA%2CA%2CA%2CA%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1449299101_416309330_6_0_0__200000000%2C1449299101_416309330_6_0_0__200000000&srepoch=1781410783&srpvid=b3c91e6b624401c6&type=total&ucfs=1&"
                 target="_blank"
                 class="btn-primary"
-                style="
-                  padding: 10px 20px;
-                  font-size: 12px;
-                  margin-top: auto;
-                  text-align: center;
-                  justify-content: center;
-                "
               >
                 Đặt Phòng Qua Booking <i class="ri-external-link-line"></i>
               </a>
@@ -629,7 +446,7 @@
           </div>
 
           <!-- Homestay 5 -->
-          <div class="homestay-card" data-slug="hien-apartment">
+          <div class="homestay-card tilt-card" data-slug="hien-apartment">
             <img
               src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/873759857.jpg?k=230999644739071184e0ad55701f5f90411fe483ae35b3ba0d34372f70c2efc1&o="
               alt="Hien apartment"
@@ -649,7 +466,7 @@
                 di chuyển đến bến xe, phố đi bộ Nguyễn Đình Chiểu và các quán ăn
                 hến đập đá.
               </p>
-              <div class="homestay-tags" style="margin-bottom: 15px">
+              <div class="homestay-tags">
                 <span class="homestay-tag"
                   ><i class="ri-star-line"></i> 9.5⭐</span
                 >
@@ -658,10 +475,7 @@
                 >
               </div>
               <div class="homestay-vote">
-                <button
-                  type="button"
-                  class="btn-secondary homestay-vote-btn"
-                  data-slug="hien-apartment"
+                <button type="button" class="btn-secondary magnetic-btn homestay-vote-btn" data-slug="hien-apartment"
                 >
                   <i class="ri-thumb-up-line"></i> Bình chọn
                 </button>
@@ -673,13 +487,6 @@
                 href="https://www.booking.com/hotel/vn/hien-apartment.vi.html?label=New_English_EN_VI_27027142225-H8e7AwH0Qvg02qi5WZOlwwS637942138799%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atidsa-199489749865%3Alp1028580%3Ali%3Adec%3Adm%3Aag27027142225%3Acmp400679185&sid=98f33d23cb40889a45691e8738ef2dd0&gclid=Cj0KCQjw_7PRBhDcARIsAMjV7jlUmYXfKKYb7PkefyjosxqN7TA18cKFBcxWjwhUpTPEZv7jcja--e0aAsKYEALw_wcB&aid=318615&ucfs=1&arphpl=1&checkin=2026-07-24&checkout=2026-07-26&dest_id=-3730935&dest_type=city&group_adults=11&req_adults=11&no_rooms=2&group_children=0&req_children=0&hpos=4&hapos=4&sr_order=popularity&srpvid=b3c91e6b624401c6&srepoch=1781410919&all_sr_blocks=1324929002_405124942_6_0_0%2C1324929003_405124942_5_0_0&highlighted_blocks=1324929002_405124942_6_0_0%2C1324929003_405124942_5_0_0&matching_block_id=1324929002_405124942_6_0_0&sr_pri_blocks=1324929002_405124942_6_0_0__241920000%2C1324929003_405124942_5_0_0__221760000&from=searchresult"
                 target="_blank"
                 class="btn-primary"
-                style="
-                  padding: 10px 20px;
-                  font-size: 12px;
-                  margin-top: auto;
-                  text-align: center;
-                  justify-content: center;
-                "
               >
                 Đặt Phòng Trên Booking <i class="ri-external-link-line"></i>
               </a>
@@ -690,36 +497,20 @@
     </section>
 
     <!-- Budget Calculator Section (Updated with flight return) -->
-    <section class="budget-section" id="budget">
+    <section class="budget-section reveal" id="budget">
       <div class="container">
-        <div style="text-align: center; margin-bottom: 40px">
+        <div class="section-header centered reveal-child">
           <span class="section-tag">Dự tính tài chính</span>
           <h2 class="section-title">Ước Tính Chi Phí Mỗi Thành Viên</h2>
-          <p
-            style="
-              max-width: 600px;
-              margin: 0 auto;
-              opacity: 0.8;
-              font-size: 15px;
-            "
-          >
+          <p class="section-desc centered">
             Tùy chỉnh các lựa chọn dưới đây để xem tổng chi phí trung bình ước
-            tính (Đi giường nằm - Về máy bay).
+            tính (đi giường nằm, về máy bay).
           </p>
         </div>
 
         <div class="budget-grid">
           <div class="budget-calculator-card">
-            <h3
-              style="
-                font-family: var(--font-heading);
-                font-size: 22px;
-                color: var(--pure-white);
-                margin-bottom: 20px;
-              "
-            >
-              Tùy Chọn Hoạt Động & Vé
-            </h3>
+            <h3>Tùy Chọn Hoạt Động & Vé</h3>
 
             <div class="calc-option-group">
               <label class="calc-label"
@@ -861,34 +652,16 @@
           </div>
 
           <div class="budget-summary-box">
-            <i
-              class="ri-flight-takeoff-line"
-              style="
-                font-size: 48px;
-                color: var(--sunset-gold);
-                margin-bottom: 10px;
-              "
-            ></i>
-            <h3
-              style="
-                font-family: var(--font-heading);
-                font-size: 24px;
-                color: var(--pure-white);
-              "
-            >
-              Tổng chi phí dự tính / thành viên
-            </h3>
+            <i class="ri-flight-takeoff-line"></i>
+            <h3>Tổng chi phí dự tính / thành viên</h3>
             <div class="summary-total" id="budgetTotal">3.710.000 đ</div>
             <p class="summary-desc" style="margin-bottom: 15px">
               Đã bao gồm ăn uống cơ bản (bún bò, bánh bèo, chè...) khoảng
               500.000đ/người cho cả chuyến đi (các bữa chính nhậu nhẹt và hát hò
               đã được cộng riêng ở bảng chọn).
             </p>
-            <p
-              class="summary-desc"
-              style="color: var(--sunset-gold); font-weight: 700"
-            >
-              Dự tính quỹ chi tiêu đi máy bay về khoảng 3.800.000 - 4.200.000
+            <p class="summary-desc summary-highlight">
+              Dự tính quỹ chi tiêu đi máy bay về khoảng 3.800.000 – 4.200.000
               đ/người.
             </p>
           </div>
@@ -897,21 +670,13 @@
     </section>
 
     <!-- Interactive Map Section -->
-    <section class="map-section" id="map">
+    <section class="map-section reveal" id="map">
       <div class="container">
-        <div style="text-align: center; margin-bottom: 40px">
-          <span class="section-tag">Sơ đồ hành trình</span>
+        <div class="section-header centered reveal-child">
           <h2 class="section-title">Bản Đồ Điểm Đến Tương Tác</h2>
-          <p
-            style="
-              max-width: 600px;
-              margin: 0 auto;
-              opacity: 0.8;
-              font-size: 15px;
-            "
-          >
-            Bấm chọn các chấm vàng trên bản đồ mô phỏng sông Hương để khám phá
-            thông tin nhanh về địa điểm tham quan chính.
+          <p class="section-desc centered">
+            Bấm chọn các điểm trên bản đồ mô phỏng sông Hương để xem thông tin
+            nhanh về địa điểm tham quan chính.
           </p>
         </div>
 
@@ -930,9 +695,9 @@
                   x2="100%"
                   y2="100%"
                 >
-                  <stop offset="0%" stop-color="#3b1642" />
-                  <stop offset="50%" stop-color="#4a90e2" />
-                  <stop offset="100%" stop-color="#50e3c2" />
+                  <stop offset="0%" stop-color="#E4E4E7" />
+                  <stop offset="50%" stop-color="#5E6AD2" />
+                  <stop offset="100%" stop-color="#818CF8" />
                 </linearGradient>
               </defs>
 
@@ -952,7 +717,7 @@
                 y1="170"
                 x2="470"
                 y2="210"
-                stroke="#d4a373"
+                stroke="#5E6AD2"
                 stroke-width="6"
                 stroke-linecap="round"
               />
@@ -1112,19 +877,11 @@
     </section>
 
     <!-- Itinerary / Schedule Section -->
-    <section class="itinerary-section" id="itinerary">
+    <section class="itinerary-section reveal" id="itinerary">
       <div class="container">
-        <div style="text-align: center; margin-bottom: 40px">
-          <span class="section-tag">Lịch trình chi tiết</span>
+        <div class="section-header centered reveal-child">
           <h2 class="section-title">Lịch Trình Di Cư Của Đảng Lông Lá</h2>
-          <p
-            style="
-              max-width: 600px;
-              margin: 0 auto;
-              opacity: 0.8;
-              font-size: 15px;
-            "
-          >
+          <p class="section-desc centered">
             Tối ưu hóa các buổi tối nhậu nhẹt giao lưu và đi hát karaoke bung
             xõa cho đoàn 10 người.
           </p>
@@ -1147,16 +904,10 @@
           <div class="timeline">
             <!-- Item 0 (23/7 Night) -->
             <div class="timeline-item">
-              <div
-                class="timeline-badge"
-                style="border-color: var(--bright-amber)"
-              >
+              <div class="timeline-badge is-highlight">
                 <i class="ri-bus-fill"></i>
               </div>
-              <div
-                class="timeline-card"
-                style="border-left: 3px solid var(--bright-amber)"
-              >
+              <div class="timeline-card is-highlight">
                 <span class="timeline-time">Tối 23/07 (19:30)</span>
                 <span class="timeline-cost"
                   ><i class="ri-money-dollar-circle-line"></i> 450k-600k</span
@@ -1284,16 +1035,10 @@
 
             <!-- Item 7 (Friday Night Nhậu & Karaoke) -->
             <div class="timeline-item">
-              <div
-                class="timeline-badge"
-                style="border-color: var(--bright-amber)"
-              >
+              <div class="timeline-badge is-highlight">
                 <i class="ri-goblet-line"></i>
               </div>
-              <div
-                class="timeline-card"
-                style="border-left: 3px solid var(--bright-amber)"
-              >
+              <div class="timeline-card is-highlight">
                 <span class="timeline-time">19:30 - Đêm muộn</span>
                 <span class="timeline-cost"
                   ><i class="ri-money-dollar-circle-line"></i> ~400k (Ăn nhậu +
@@ -1423,16 +1168,10 @@
 
             <!-- Item 6 (Saturday Night Nhậu & Karaoke) -->
             <div class="timeline-item">
-              <div
-                class="timeline-badge"
-                style="border-color: var(--bright-amber)"
-              >
+              <div class="timeline-badge is-highlight">
                 <i class="ri-restaurant-line"></i>
               </div>
-              <div
-                class="timeline-card"
-                style="border-left: 3px solid var(--bright-amber)"
-              >
+              <div class="timeline-card is-highlight">
                 <span class="timeline-time">19:00 - Khuya</span>
                 <span class="timeline-cost"
                   ><i class="ri-money-dollar-circle-line"></i> ~450k (Ăn tối +
@@ -1507,16 +1246,10 @@
 
             <!-- Item 4 (Updated back to Flight) -->
             <div class="timeline-item">
-              <div
-                class="timeline-badge"
-                style="border-color: var(--sunset-gold)"
-              >
+              <div class="timeline-badge is-accent">
                 <i class="ri-flight-takeoff-line"></i>
               </div>
-              <div
-                class="timeline-card"
-                style="border-left: 3px solid var(--sunset-gold)"
-              >
+              <div class="timeline-card is-accent">
                 <span class="timeline-time">Trưa 26/07 (11:30)</span>
                 <span class="timeline-cost"
                   ><i class="ri-money-dollar-circle-line"></i> ~1.5M (Vé
@@ -1539,27 +1272,19 @@
     </section>
 
     <!-- Hue Culinary Tour Section -->
-    <section class="culinary-section" id="food">
+    <section class="culinary-section reveal" id="food">
       <div class="container">
-        <div style="text-align: center; margin-bottom: 40px">
-          <span class="section-tag">Ẩm thực cung đình & bình dân</span>
+        <div class="section-header centered">
           <h2 class="section-title">Tinh Hoa Món Ngon Xứ Huế</h2>
-          <p
-            style="
-              max-width: 600px;
-              margin: 0 auto;
-              opacity: 0.8;
-              font-size: 15px;
-            "
-          >
-            Click vào các món ăn đặc trưng dưới đây để xem mô tả chi tiết và các
-            địa chỉ ăn chuẩn vị nhất.
+          <p class="section-desc centered">
+            Chọn món ăn đặc trưng để xem mô tả chi tiết và các địa chỉ ăn chuẩn
+            vị nhất.
           </p>
         </div>
 
         <div class="food-grid">
           <!-- Food 1 -->
-          <div class="food-card" data-food="bunbo">
+          <div class="food-card tilt-card" data-food="bunbo">
             <div class="food-img-wrapper">
               <svg
                 viewBox="0 0 100 100"
@@ -1609,7 +1334,7 @@
           </div>
 
           <!-- Food 2 -->
-          <div class="food-card" data-food="banhhue">
+          <div class="food-card tilt-card" data-food="banhhue">
             <div class="food-img-wrapper">
               <svg
                 viewBox="0 0 100 100"
@@ -1654,7 +1379,7 @@
           </div>
 
           <!-- Food 3 -->
-          <div class="food-card" data-food="comhen">
+          <div class="food-card tilt-card" data-food="comhen">
             <div class="food-img-wrapper">
               <svg
                 viewBox="0 0 100 100"
@@ -1689,7 +1414,7 @@
           </div>
 
           <!-- Food 4 -->
-          <div class="food-card" data-food="chehue">
+          <div class="food-card tilt-card" data-food="chehue">
             <div class="food-img-wrapper">
               <svg
                 viewBox="0 0 100 100"
@@ -1748,36 +1473,20 @@
     </div>
 
     <!-- Participant Manager Section -->
-    <section class="participants-section" id="participants">
+    <section class="participants-section reveal" id="participants">
       <div class="container">
-        <div style="text-align: center; margin-bottom: 40px">
-          <span class="section-tag">Quản lý di cư của Đảng Lông Lá 🌸</span>
+        <div class="section-header centered">
           <h2 class="section-title">Hành Khách Lông Lá Lên Xe</h2>
-          <p
-            style="
-              max-width: 600px;
-              margin: 0 auto;
-              opacity: 0.8;
-              font-size: 15px;
-            "
-          >
-            Dễ dàng theo dõi thành viên trong đoàn, phân chia nhiệm vụ (trưởng
-            đoàn, thủ quỹ, phó nháy, hậu cần) và tích chọn trạng thái sẵn sàng
-            khởi hành.
+          <p class="section-desc centered">
+            Theo dõi thành viên trong đoàn, phân chia nhiệm vụ (trưởng đoàn,
+            thủ quỹ, phó nháy, hậu cần) và cập nhật trạng thái sẵn sàng khởi
+            hành.
           </p>
         </div>
 
-        <div class="glass-panel" style="margin-bottom: 40px">
+        <div class="glass-panel" style="margin-bottom: 0">
           <div class="participants-header">
-            <h3
-              style="
-                font-family: var(--font-heading);
-                font-size: 24px;
-                color: var(--pure-white);
-              "
-            >
-              Thêm Thành Viên Mới
-            </h3>
+            <h3>Thêm thành viên mới</h3>
             <div class="participants-stats" id="memberStats">
               Tổng số: 10 | Đã sẵn sàng: 0
             </div>
@@ -1798,7 +1507,7 @@
               <option value="haucan">Hậu Cần</option>
               <option value="thanhvien" selected>Thành Viên</option>
             </select>
-            <button class="btn-secondary" id="addMemberBtn">
+            <button class="btn-secondary magnetic-btn" id="addMemberBtn">
               <i class="ri-user-add-line"></i> Thêm thành viên
             </button>
           </div>
@@ -1811,21 +1520,13 @@
     </section>
 
     <!-- Smart Checklist Section -->
-    <section class="checklist-section" id="checklist">
+    <section class="checklist-section reveal" id="checklist">
       <div class="container">
-        <div style="text-align: center; margin-bottom: 40px">
-          <span class="section-tag">Chuẩn bị trước chuyến đi</span>
+        <div class="section-header centered">
           <h2 class="section-title">Hành Lý Của Đảng Lông Lá Cần Gì?</h2>
-          <p
-            style="
-              max-width: 600px;
-              margin: 0 auto;
-              opacity: 0.8;
-              font-size: 15px;
-            "
-          >
+          <p class="section-desc centered">
             Tích chọn danh sách dưới đây để chuẩn bị đầy đủ đồ dùng. Trạng thái
-            checklist sẽ được tự động lưu trữ trên trình duyệt của bạn.
+            checklist được tự động lưu trên trình duyệt của bạn.
           </p>
         </div>
 
@@ -1985,10 +1686,7 @@
 
     <!-- Save State Toast Notification -->
     <div class="toast" id="saveToast">
-      <i
-        class="ri-checkbox-circle-line"
-        style="color: var(--sunset-gold); font-size: 20px"
-      ></i>
+      <i class="ri-checkbox-circle-line"></i>
       <span id="toastText">Đã tự động lưu trạng thái!</span>
     </div>
 
@@ -1999,9 +1697,9 @@
           &copy; 2026 Đảng Lông Lá di cư vô Huế. Lịch trình cập nhật từ Google
           Sheets.
         </p>
-        <p style="font-size: 12px; opacity: 0.5">
-          Được thiết kế sinh động bằng HTML & CSS thuần. Chúc Đảng có chuyến đi
-          Huế bùng nổ!
+        <p class="footer-muted">
+          Được thiết kế cho chuyến đi Đảng Lông Lá. Chúc đoàn có chuyến Huế bùng
+          nổ!
         </p>
       </div>
     </footer>
@@ -2046,14 +1744,63 @@
           .replaceAll("'", "&#39;");
       }
 
-      // 1. Sticky Navigation Header
-      window.addEventListener("scroll", () => {
-        const header = document.getElementById("header");
-        if (window.scrollY > 50) {
-          header.classList.add("scrolled");
-        } else {
-          header.classList.remove("scrolled");
-        }
+      // 1. Sticky Navigation Header & mobile menu
+      const navToggle = document.getElementById("navToggle");
+      const mobileNav = document.getElementById("mobileNav");
+
+      function closeMobileNav() {
+        mobileNav.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.innerHTML = '<i class="ri-menu-line"></i>';
+      }
+
+      navToggle.addEventListener("click", () => {
+        const isOpen = mobileNav.classList.toggle("open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+        navToggle.innerHTML = isOpen
+          ? '<i class="ri-close-line"></i>'
+          : '<i class="ri-menu-line"></i>';
+      });
+
+      mobileNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMobileNav);
+      });
+
+      const sectionIds = [
+        "welcome",
+        "weather",
+        "homestay",
+        "budget",
+        "map",
+        "itinerary",
+        "food",
+        "participants",
+        "checklist",
+      ];
+
+      const navAnchors = document.querySelectorAll(
+        ".nav-links a, .mobile-nav a",
+      );
+
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const id = entry.target.id;
+            navAnchors.forEach((anchor) => {
+              anchor.classList.toggle(
+                "active",
+                anchor.getAttribute("href") === `#${id}`,
+              );
+            });
+          });
+        },
+        { rootMargin: "-40% 0px -50% 0px", threshold: 0 },
+      );
+
+      sectionIds.forEach((id) => {
+        const section = document.getElementById(id);
+        if (section) sectionObserver.observe(section);
       });
 
       // 2. Interactive Weather Time Suggestion Slider
@@ -2405,7 +2152,7 @@
           if (member.ready) readyCount++;
 
           const card = document.createElement("div");
-          card.className = "member-card";
+          card.className = "member-card tilt-card";
           card.innerHTML = `
                     <div class="member-info">
                         <div class="member-name">${escapeHtml(member.name)}</div>
@@ -2428,6 +2175,9 @@
           `Tổng số: ${members.length} | Đã sẵn sàng: ${readyCount}`;
 
         updateVoterSelectOptions();
+        if (typeof window.reinitTiltCards === "function") {
+          window.reinitTiltCards();
+        }
       }
 
       function getRoleName(role) {
@@ -2562,6 +2312,10 @@
         document.getElementById("budgetTotal").innerText = formatter
           .format(total)
           .replace("₫", "đ");
+
+        if (typeof window.animateBudgetTotal === "function") {
+          window.animateBudgetTotal(document.getElementById("budgetTotal"));
+        }
       };
 
       // Initialize state on page load
@@ -2579,5 +2333,10 @@
         }
       });
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="motion.js"></script>
   </body>
 </html>
